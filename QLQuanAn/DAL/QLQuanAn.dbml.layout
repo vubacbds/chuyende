@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="QLQuanAn">
+  <DataContextMoniker Name="/QLQuanAnDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0ed6a261-a3ea-429a-9146-636553cdf3d9" absoluteBounds="0.75, 4, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/QLQuanAnDataContext/BanAn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79f0e504-42e5-4db8-9ad5-34d07f7470f5" absoluteBounds="0.765, 4.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="77f4533e-6855-47c4-be74-ff7eef386e13" absoluteBounds="0.75, 1.125, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/QLQuanAnDataContext/DanhMuc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1c7ccd52-75ca-4cb1-84b7-7084a84df60e" absoluteBounds="0.765, 1.585, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ce0c474a-bc1b-4c71-8434-26ecee3e2357" absoluteBounds="3.5, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/QLQuanAnDataContext/HoaDon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5c87961-f31e-4183-9d10-ef0972391d56" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e028c028-ba0e-4290-97ba-788feac3b3bc" absoluteBounds="6.25, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QLQuanAnDataContext/HoaDonChiTiet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8d2fa8b3-f8aa-4b23-b980-164571bf3167" absoluteBounds="6.265, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="56c485de-6c71-4517-8e70-d5d32ac4c3a2" absoluteBounds="3.5, 0.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QLQuanAnDataContext/MonAn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e7f790ca-9a7d-4b78-afce-1272cdb9ea54" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5de6d8a1-49de-43ad-a27f-416407594ea9" absoluteBounds="0.75, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QLQuanAnDataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85865bd2-836a-48f0-86bf-24f4372182ee" absoluteBounds="0.765, 7.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.69314697265625); (3.5 : 4.69314697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLQuanAnDataContext/BanAn/BanAn_HoaDon" />
+      <nodes>
+        <classShapeMoniker Id="0ed6a261-a3ea-429a-9146-636553cdf3d9" />
+        <classShapeMoniker Id="ce0c474a-bc1b-4c71-8434-26ecee3e2357" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.63544840494792); (7.25 : 4.63544840494792); (7.25 : 2.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLQuanAnDataContext/HoaDon/HoaDon_HoaDonChiTiet" />
+      <nodes>
+        <classShapeMoniker Id="ce0c474a-bc1b-4c71-8434-26ecee3e2357" />
+        <classShapeMoniker Id="e028c028-ba0e-4290-97ba-788feac3b3bc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 1.66429768880208); (6.25 : 1.66429768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLQuanAnDataContext/MonAn/MonAn_HoaDonChiTiet" />
+      <nodes>
+        <classShapeMoniker Id="56c485de-6c71-4517-8e70-d5d32ac4c3a2" />
+        <classShapeMoniker Id="e028c028-ba0e-4290-97ba-788feac3b3bc" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 1.72199625651042); (3.5 : 1.72199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLQuanAnDataContext/DanhMuc/DanhMuc_MonAn" />
+      <nodes>
+        <classShapeMoniker Id="77f4533e-6855-47c4-be74-ff7eef386e13" />
+        <classShapeMoniker Id="56c485de-6c71-4517-8e70-d5d32ac4c3a2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

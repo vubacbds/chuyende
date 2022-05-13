@@ -1,0 +1,14 @@
+C:\Users\BAC\source\repos\QLQuanAn\DAL\bin\Debug\DAL.dll.config
+C:\Users\BAC\source\repos\QLQuanAn\DAL\bin\Debug\DAL.dll
+C:\Users\BAC\source\repos\QLQuanAn\DAL\bin\Debug\DAL.pdb
+C:\Users\BAC\source\repos\QLQuanAn\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\BAC\source\repos\QLQuanAn\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\BAC\source\repos\QLQuanAn\DAL\obj\Debug\DAL.dll
+C:\Users\BAC\source\repos\QLQuanAn\DAL\obj\Debug\DAL.pdb
+D:\chuyende\QLQuanAn\DAL\bin\Debug\DAL.dll.config
+D:\chuyende\QLQuanAn\DAL\bin\Debug\DAL.dll
+D:\chuyende\QLQuanAn\DAL\bin\Debug\DAL.pdb
+D:\chuyende\QLQuanAn\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\chuyende\QLQuanAn\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\chuyende\QLQuanAn\DAL\obj\Debug\DAL.dll
+D:\chuyende\QLQuanAn\DAL\obj\Debug\DAL.pdb
