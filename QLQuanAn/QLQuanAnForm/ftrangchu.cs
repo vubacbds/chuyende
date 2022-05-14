@@ -20,13 +20,16 @@ namespace QLQuanAnForm
         HoaDonChiTietBLL HDCTBLL = new HoaDonChiTietBLL();
         MonAnBLL MABLL = new MonAnBLL();
         DanhMucBLL DMBLL = new DanhMucBLL();
+        TaiKhoanBLL TKBLL = new TaiKhoanBLL();
         int IDBanAn = 0;
-        public ftrangchu()
+        public ftrangchu(string tendangnhap)
         {
+            this.tendangnhap = tendangnhap;
             InitializeComponent();
             LoadBanAn();
             LoadDanhMuc();
         }
+        private string tendangnhap;
 
         #region Methods
         void LoadBanAn()
@@ -117,10 +120,6 @@ namespace QLQuanAnForm
             btnTenBan.Text = ((sender as Button).Tag as BanAn).ten;
             HienThiHoaDon(IDBanAn);
         }
-        private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -129,7 +128,7 @@ namespace QLQuanAnForm
 
         private void thôngTinCáNhânToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            fthongtincanhan f = new fthongtincanhan();
+            fthongtincanhan f = new fthongtincanhan(tendangnhap);
             f.ShowDialog();
         }
 
@@ -229,6 +228,15 @@ namespace QLQuanAnForm
                     HienThiHoaDon(IDBanAn);
                 }
             }   
+        }
+
+        private void ftrangchu_Load(object sender, EventArgs e)
+        {
+            if(TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).loai == 0)
+            {
+                adminToolStripMenuItem.Visible = false;
+                thôngTinCáNhânToolStripMenuItem.Text = TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).tenhienthi;
+            }
         }
         #endregion
     }

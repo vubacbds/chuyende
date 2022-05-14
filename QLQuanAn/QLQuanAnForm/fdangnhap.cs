@@ -63,7 +63,7 @@ namespace QLQuanAnForm
 
             if (TKBLL.KiemTraDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
             {
-                ftrangchu f = new ftrangchu();
+                ftrangchu f = new ftrangchu(txtTenDangNhap.Text);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -75,6 +75,7 @@ namespace QLQuanAnForm
         }
         private void fdangnhap_Load(object sender, EventArgs e)
         {
+            chkGhiNhoMatKhau.Checked = true;
             txtTenDangNhap.Text = Properties.Settings.Default.tendangnhap;
             txtMatKhau.Text = Properties.Settings.Default.matkhau;
         }

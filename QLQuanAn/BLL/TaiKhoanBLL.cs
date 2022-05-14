@@ -55,6 +55,28 @@ namespace BLL
             DB.TaiKhoans.InsertOnSubmit(tk);
             DB.SubmitChanges();
         }
+        public TaiKhoan LayTaiKhoanTheoTenDangNhap(string tendangnhap)
+        {
+            return DB.TaiKhoans.Where(t => t.tendangnhap == tendangnhap).FirstOrDefault();
+        }
+        public void Sua(string tendangnhap, string tenhienthi, string matkhau)
+        {
+            TaiKhoan tk = DB.TaiKhoans.FirstOrDefault(t => t.tendangnhap == tendangnhap);
+            tk.tenhienthi = tenhienthi;
+            if (matkhau != null)
+            {
+                byte[] x = ASCIIEncoding.ASCII.GetBytes(matkhau);  //Mã hóa mật khẩu
+                byte[] hasdata = new MD5CryptoServiceProvider().ComputeHash(x);
+
+                string hasmatkhau = "";
+                foreach (byte item in hasdata)
+                {
+                    hasmatkhau += item;
+                }
+                tk.matkhau = hasmatkhau;
+            }
+            DB.SubmitChanges();
+        }
 
     }
 }
