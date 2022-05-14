@@ -29,7 +29,7 @@ namespace QLQuanAnForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,6 +50,7 @@ namespace QLQuanAnForm
             this.cbbMonAn = new System.Windows.Forms.ComboBox();
             this.cbbDanhMuc = new System.Windows.Forms.ComboBox();
             this.flpBanAn = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnTenBan = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonChiTiet)).BeginInit();
@@ -112,14 +113,14 @@ namespace QLQuanAnForm
             // 
             // dgvHoaDonChiTiet
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDonChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDonChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHoaDonChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDonChiTiet.Location = new System.Drawing.Point(4, 4);
             this.dgvHoaDonChiTiet.Name = "dgvHoaDonChiTiet";
@@ -197,6 +198,7 @@ namespace QLQuanAnForm
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnTenBan);
             this.panel4.Controls.Add(this.numSoLuong);
             this.panel4.Controls.Add(this.btnThem);
             this.panel4.Controls.Add(this.cbbMonAn);
@@ -208,14 +210,14 @@ namespace QLQuanAnForm
             // 
             // numSoLuong
             // 
-            this.numSoLuong.Location = new System.Drawing.Point(198, 14);
+            this.numSoLuong.Location = new System.Drawing.Point(244, 14);
             this.numSoLuong.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
             this.numSoLuong.Name = "numSoLuong";
-            this.numSoLuong.Size = new System.Drawing.Size(82, 20);
+            this.numSoLuong.Size = new System.Drawing.Size(58, 20);
             this.numSoLuong.TabIndex = 3;
             this.numSoLuong.Value = new decimal(new int[] {
             1,
@@ -236,7 +238,7 @@ namespace QLQuanAnForm
             // cbbMonAn
             // 
             this.cbbMonAn.FormattingEnabled = true;
-            this.cbbMonAn.Location = new System.Drawing.Point(4, 26);
+            this.cbbMonAn.Location = new System.Drawing.Point(67, 25);
             this.cbbMonAn.Name = "cbbMonAn";
             this.cbbMonAn.Size = new System.Drawing.Size(171, 21);
             this.cbbMonAn.TabIndex = 1;
@@ -244,7 +246,7 @@ namespace QLQuanAnForm
             // cbbDanhMuc
             // 
             this.cbbDanhMuc.FormattingEnabled = true;
-            this.cbbDanhMuc.Location = new System.Drawing.Point(4, 4);
+            this.cbbDanhMuc.Location = new System.Drawing.Point(67, 3);
             this.cbbDanhMuc.Name = "cbbDanhMuc";
             this.cbbDanhMuc.Size = new System.Drawing.Size(171, 21);
             this.cbbDanhMuc.TabIndex = 0;
@@ -257,6 +259,18 @@ namespace QLQuanAnForm
             this.flpBanAn.Name = "flpBanAn";
             this.flpBanAn.Size = new System.Drawing.Size(436, 311);
             this.flpBanAn.TabIndex = 6;
+            // 
+            // btnTenBan
+            // 
+            this.btnTenBan.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.btnTenBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTenBan.Location = new System.Drawing.Point(4, 3);
+            this.btnTenBan.Name = "btnTenBan";
+            this.btnTenBan.Size = new System.Drawing.Size(57, 45);
+            this.btnTenBan.TabIndex = 4;
+            this.btnTenBan.Text = "Tên bàn";
+            this.btnTenBan.UseVisualStyleBackColor = false;
+            this.btnTenBan.Click += new System.EventHandler(this.btnTenBan_Click);
             // 
             // ftrangchu
             // 
@@ -308,5 +322,6 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Button btnChuyenBan;
         private System.Windows.Forms.DataGridView dgvHoaDonChiTiet;
         private System.Windows.Forms.TextBox txtTongTien;
+        private System.Windows.Forms.Button btnTenBan;
     }
 }

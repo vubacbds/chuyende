@@ -36,6 +36,31 @@ namespace QLQuanAnForm
 
         private void btnDanhNhap_Click(object sender, EventArgs e)
         {
+            #region Ràng buộc nhập vào Form
+            if (string.IsNullOrEmpty(txtTenDangNhap.Text))
+            {
+                MessageBox.Show("Bạn thiếu tên đăng nhập");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtMatKhau.Text))
+            {
+                MessageBox.Show("Bạn thiếu mật khẩu");
+                return;
+            }
+            if (chkGhiNhoMatKhau.Checked)    //Ghi nhớ mật khẩu đăng nhập
+            {
+                Properties.Settings.Default.tendangnhap = txtTenDangNhap.Text;
+                Properties.Settings.Default.matkhau = txtMatKhau.Text;
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.tendangnhap = "";
+                Properties.Settings.Default.matkhau = "";
+                Properties.Settings.Default.Save();
+            }
+            #endregion
+
             if (TKBLL.KiemTraDangNhap(txtTenDangNhap.Text, txtMatKhau.Text))
             {
                 ftrangchu f = new ftrangchu();
@@ -48,6 +73,13 @@ namespace QLQuanAnForm
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");
             }
         }
+        private void fdangnhap_Load(object sender, EventArgs e)
+        {
+            txtTenDangNhap.Text = Properties.Settings.Default.tendangnhap;
+            txtMatKhau.Text = Properties.Settings.Default.matkhau;
+        }
         #endregion
+
+
     }
 }

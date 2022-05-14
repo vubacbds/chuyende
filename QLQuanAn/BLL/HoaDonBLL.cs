@@ -18,9 +18,10 @@ namespace BLL
         {
             return DB.HoaDons.Where(hd => hd.idbanan==idbanan && hd.trangthai==0).FirstOrDefault();
         }
-        public void Them(int IDBanAn)
+        public void Them(int IDBanAn, string idhoadon)
         {
             HoaDon hd = new HoaDon();
+            hd.id = idhoadon;
             hd.idbanan = IDBanAn;
             hd.ngayvao = DateTime.Now;
 
@@ -31,6 +32,13 @@ namespace BLL
         {
             HoaDon hd = DB.HoaDons.FirstOrDefault(h => h.idbanan == idbanan && h.trangthai == 0);
             hd.trangthai = 1;
+            hd.ngayra = DateTime.Now;
+            DB.SubmitChanges();
+        }
+        public void Xoa(string idhoadon)
+        {
+            HoaDon hd = DB.HoaDons.FirstOrDefault(h => h.id == idhoadon);
+            DB.HoaDons.DeleteOnSubmit(hd);
             DB.SubmitChanges();
         }
     }

@@ -387,7 +387,7 @@ namespace DAL
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _id;
+		private string _id;
 		
 		private System.DateTime _ngayvao;
 		
@@ -405,7 +405,7 @@ namespace DAL
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidChanging(int value);
+    partial void OnidChanging(string value);
     partial void OnidChanged();
     partial void OnngayvaoChanging(System.DateTime value);
     partial void OnngayvaoChanged();
@@ -424,8 +424,8 @@ namespace DAL
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string id
 		{
 			get
 			{
@@ -616,7 +616,7 @@ namespace DAL
 		
 		private int _id;
 		
-		private int _idhoadon;
+		private string _idhoadon;
 		
 		private int _idmonan;
 		
@@ -632,7 +632,7 @@ namespace DAL
     partial void OnCreated();
     partial void OnidChanging(int value);
     partial void OnidChanged();
-    partial void OnidhoadonChanging(int value);
+    partial void OnidhoadonChanging(string value);
     partial void OnidhoadonChanged();
     partial void OnidmonanChanging(int value);
     partial void OnidmonanChanged();
@@ -667,8 +667,8 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idhoadon", DbType="Int NOT NULL")]
-		public int idhoadon
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idhoadon", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string idhoadon
 		{
 			get
 			{
@@ -762,7 +762,7 @@ namespace DAL
 					}
 					else
 					{
-						this._idhoadon = default(int);
+						this._idhoadon = default(string);
 					}
 					this.SendPropertyChanged("HoaDon");
 				}

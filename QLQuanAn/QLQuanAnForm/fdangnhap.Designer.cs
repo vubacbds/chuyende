@@ -30,21 +30,23 @@ namespace QLQuanAnForm
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
+            this.btnThoat = new System.Windows.Forms.Button();
+            this.btnDanhNhap = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnDanhNhap = new System.Windows.Forms.Button();
-            this.btnThoat = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chkGhiNhoMatKhau = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.chkGhiNhoMatKhau);
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.btnDanhNhap);
             this.panel1.Controls.Add(this.panel3);
@@ -54,31 +56,26 @@ namespace QLQuanAnForm
             this.panel1.Size = new System.Drawing.Size(442, 180);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // btnThoat
             // 
-            this.panel2.Controls.Add(this.txtTenDangNhap);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(436, 49);
-            this.panel2.TabIndex = 0;
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnThoat.Location = new System.Drawing.Point(297, 151);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.TabIndex = 4;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
-            // label1
+            // btnDanhNhap
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tên đăng nhập: ";
-            // 
-            // txtTenDangNhap
-            // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(162, 10);
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(141, 20);
-            this.txtTenDangNhap.TabIndex = 1;
+            this.btnDanhNhap.Location = new System.Drawing.Point(216, 151);
+            this.btnDanhNhap.Name = "btnDanhNhap";
+            this.btnDanhNhap.Size = new System.Drawing.Size(75, 23);
+            this.btnDanhNhap.TabIndex = 3;
+            this.btnDanhNhap.Text = "Đăng nhập";
+            this.btnDanhNhap.UseVisualStyleBackColor = true;
+            this.btnDanhNhap.Click += new System.EventHandler(this.btnDanhNhap_Click);
             // 
             // panel3
             // 
@@ -107,25 +104,41 @@ namespace QLQuanAnForm
             this.label2.TabIndex = 0;
             this.label2.Text = "Mật khẩu: ";
             // 
-            // btnDanhNhap
+            // panel2
             // 
-            this.btnDanhNhap.Location = new System.Drawing.Point(247, 132);
-            this.btnDanhNhap.Name = "btnDanhNhap";
-            this.btnDanhNhap.Size = new System.Drawing.Size(75, 23);
-            this.btnDanhNhap.TabIndex = 3;
-            this.btnDanhNhap.Text = "Đăng nhập";
-            this.btnDanhNhap.UseVisualStyleBackColor = true;
-            this.btnDanhNhap.Click += new System.EventHandler(this.btnDanhNhap_Click);
+            this.panel2.Controls.Add(this.txtTenDangNhap);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(3, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(436, 49);
+            this.panel2.TabIndex = 0;
             // 
-            // btnThoat
+            // txtTenDangNhap
             // 
-            this.btnThoat.Location = new System.Drawing.Point(328, 132);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
-            this.btnThoat.TabIndex = 4;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(162, 10);
+            this.txtTenDangNhap.Name = "txtTenDangNhap";
+            this.txtTenDangNhap.Size = new System.Drawing.Size(141, 20);
+            this.txtTenDangNhap.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(134, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tên đăng nhập: ";
+            // 
+            // chkGhiNhoMatKhau
+            // 
+            this.chkGhiNhoMatKhau.AutoSize = true;
+            this.chkGhiNhoMatKhau.Location = new System.Drawing.Point(165, 113);
+            this.chkGhiNhoMatKhau.Name = "chkGhiNhoMatKhau";
+            this.chkGhiNhoMatKhau.Size = new System.Drawing.Size(110, 17);
+            this.chkGhiNhoMatKhau.TabIndex = 4;
+            this.chkGhiNhoMatKhau.Text = "Ghi nhớ mật khẩu";
+            this.chkGhiNhoMatKhau.UseVisualStyleBackColor = true;
             // 
             // fdangnhap
             // 
@@ -139,11 +152,13 @@ namespace QLQuanAnForm
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fdangnhap_FormClosing);
+            this.Load += new System.EventHandler(this.fdangnhap_Load);
             this.panel1.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -159,6 +174,7 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Button btnDanhNhap;
+        private System.Windows.Forms.CheckBox chkGhiNhoMatKhau;
     }
 }
 

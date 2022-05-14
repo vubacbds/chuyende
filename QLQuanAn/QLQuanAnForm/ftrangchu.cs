@@ -114,6 +114,7 @@ namespace QLQuanAnForm
         private void Btn_Click(object sender, EventArgs e)
         {
             IDBanAn = ((sender as Button).Tag as BanAn).id;
+            btnTenBan.Text = ((sender as Button).Tag as BanAn).ten;
             HienThiHoaDon(IDBanAn);
         }
         private void thôngTinCáNhânToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,18 +150,20 @@ namespace QLQuanAnForm
         {
             int idmonan = int.Parse(cbbMonAn.SelectedValue.ToString());
             int soluong = int.Parse(numSoLuong.Value.ToString());
+            string idhoadon = "HD" + (new Random().Next(10000000, 99999999)).ToString();
+
             if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) == null)            //Khi bàn ăn không có hóa đơn nào
             {
-                var idmax = HDBLL.LayTatCa().Select(h => h.id).Max();
-                HDBLL.Them(IDBanAn);
-                HDCTBLL.Them(idmax + 1, idmonan, soluong);
+                //var idmax = HDBLL.LayTatCa().Select(h => h.id).Max();
+                HDBLL.Them(IDBanAn, idhoadon);
+                HDCTBLL.Them(idhoadon, idmonan, soluong);
                 BABLL.Sua(IDBanAn, "Đã đặt");
                 LoadBanAn();
                 HienThiHoaDon(IDBanAn);
             }
             else
             {
-                int idhoadonhientai = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
+                string idhoadonhientai = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
                 if (HDCTBLL.LayMonAn(idmonan, idhoadonhientai) == null)    //Khi món ăn chưa tồn tại
                 {
                     HDCTBLL.Them(idhoadonhientai, idmonan, soluong);
@@ -183,24 +186,50 @@ namespace QLQuanAnForm
             else
             {
                 int idmonan = int.Parse(dgvHoaDonChiTiet.Rows[e.RowIndex].Cells[0].Value.ToString());
-                HDCTBLL.Xoa(idmonan, HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id);
+                string idhoadon = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
+                HDCTBLL.XoaTungMon(idmonan, idhoadon);
+                
+                if(HDCTBLL.KiemTraHoaDonTonTaiMonAn(idhoadon) == null)  //Khi xóa 1 hàng mà hết món thì xóa luôn hóa đơn
+                {
+                    HDBLL.Xoa(idhoadon);
+                    BABLL.Sua(IDBanAn, "Trống");
+                    LoadBanAn();
+                }
                 HienThiHoaDon(IDBanAn);
             }
         }
-
-        #endregion
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            string tenbanan = BABLL.LayTenBanAn(IDBanAn);
-            if (MessageBox.Show("Bạn có chắc thanh toán tiền cho '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) != null)
             {
-                HDBLL.Sua(IDBanAn);
-                BABLL.Sua(IDBanAn, "Trống");
-                LoadBanAn();
-                HienThiHoaDon(IDBanAn);
+                string tenbanan = BABLL.LayTenBanAn(IDBanAn);
+                if (MessageBox.Show("Bạn có chắc thanh toán tiền cho '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                {
+                    HDBLL.Sua(IDBanAn);
+                    BABLL.Sua(IDBanAn, "Trống");
+                    LoadBanAn();
+                    HienThiHoaDon(IDBanAn);
+                }
             }
-            
         }
+
+        private void btnTenBan_Click(object sender, EventArgs e)
+        {
+            if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) != null)
+            {
+                string idhoadonhientai = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
+                string tenbanan = BABLL.LayTenBanAn(IDBanAn);
+                if (MessageBox.Show("Bạn có chắc xóa hết món '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                {
+                    HDCTBLL.XoaTatCa(idhoadonhientai);
+                    HDBLL.Xoa(idhoadonhientai);
+                    BABLL.Sua(IDBanAn, "Trống");
+                    LoadBanAn();
+                    HienThiHoaDon(IDBanAn);
+                }
+            }   
+        }
+        #endregion
     }
 }

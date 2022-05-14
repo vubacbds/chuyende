@@ -17,7 +17,7 @@
   </Table>
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="ngayvao" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="ngayra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="idbanan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -29,7 +29,7 @@
   <Table Name="dbo.HoaDonChiTiet" Member="HoaDonChiTiets">
     <Type Name="HoaDonChiTiet">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="idhoadon" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idhoadon" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
       <Column Name="idmonan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="soluong" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonChiTiet" Member="HoaDon" ThisKey="idhoadon" OtherKey="id" Type="HoaDon" IsForeignKey="true" />
