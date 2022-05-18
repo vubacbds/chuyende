@@ -62,7 +62,10 @@ namespace BLL
         public void Sua(string tendangnhap, string tenhienthi, string matkhau)
         {
             TaiKhoan tk = DB.TaiKhoans.FirstOrDefault(t => t.tendangnhap == tendangnhap);
-            tk.tenhienthi = tenhienthi;
+            if(tenhienthi != null)
+            {
+                tk.tenhienthi = tenhienthi;
+            }
             if (matkhau != null)
             {
                 byte[] x = ASCIIEncoding.ASCII.GetBytes(matkhau);  //Mã hóa mật khẩu
@@ -75,6 +78,21 @@ namespace BLL
                 }
                 tk.matkhau = hasmatkhau;
             }
+            DB.SubmitChanges();
+        }
+        public bool KiemTraTenDangNhapBiTrung(string tendangnhap)
+        {
+            TaiKhoan a = DB.TaiKhoans.Where(tk => tk.tendangnhap == tendangnhap).FirstOrDefault();
+            if (a != null)
+            {
+                return true;
+            }
+            return false;
+        }
+        public void Xoa(string tendangnhap)
+        {
+            TaiKhoan tk = DB.TaiKhoans.FirstOrDefault(t => t.tendangnhap == tendangnhap);
+            DB.TaiKhoans.DeleteOnSubmit(tk);
             DB.SubmitChanges();
         }
 

@@ -22,6 +22,7 @@ namespace QLQuanAnForm
         DanhMucBLL DMBLL = new DanhMucBLL();
         TaiKhoanBLL TKBLL = new TaiKhoanBLL();
         int IDBanAn = 0;
+        int giamgia = 0;
         public ftrangchu(string tendangnhap)
         {
             this.tendangnhap = tendangnhap;
@@ -86,13 +87,13 @@ namespace QLQuanAnForm
                              thanhtien
                          };
                 var tongtien = kq.Select(p => p.thanhtien).Sum();
+                giamgia = (int)tongtien;
                 string tt = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongtien);
 
                 dgvHoaDonChiTiet.DataSource = kq.ToList();
-                txtTongTien.Text = tt + " vnđ";
+                lblTongTien.Text = tt + " vnđ";
 
-                //Định dạng Datagridview
-                #region
+                #region Định dạng Datagridview
                 dgvHoaDonChiTiet.Columns["ten"].HeaderText = "Tên món";
                 dgvHoaDonChiTiet.Columns["soluong"].HeaderText = "SL";
                 dgvHoaDonChiTiet.Columns["gia"].HeaderText = "Đơn giá";
@@ -108,7 +109,7 @@ namespace QLQuanAnForm
             else
             {
                 dgvHoaDonChiTiet.DataSource = null;
-                txtTongTien.Text = "";
+                lblTongTien.Text = "Tổng tiền: 0 vnđ";
             }
         }
         #endregion
@@ -119,6 +120,9 @@ namespace QLQuanAnForm
             IDBanAn = ((sender as Button).Tag as BanAn).id;
             btnTenBan.Text = ((sender as Button).Tag as BanAn).ten;
             HienThiHoaDon(IDBanAn);
+
+            lblThongBao.Text = "";
+            numGiamGia.Value = 0;
         }
 
         private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -147,32 +151,38 @@ namespace QLQuanAnForm
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            int idmonan = int.Parse(cbbMonAn.SelectedValue.ToString());
-            int soluong = int.Parse(numSoLuong.Value.ToString());
-            string idhoadon = "HD" + (new Random().Next(10000000, 99999999)).ToString();
+            if(IDBanAn != 0)
+            {
+                int idmonan = int.Parse(cbbMonAn.SelectedValue.ToString());
+                int soluong = int.Parse(numSoLuong.Value.ToString());
+                string idhoadon = "HD" + (new Random().Next(10000000, 99999999)).ToString();
 
-            if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) == null)            //Khi bàn ăn không có hóa đơn nào
-            {
-                //var idmax = HDBLL.LayTatCa().Select(h => h.id).Max();
-                HDBLL.Them(IDBanAn, idhoadon);
-                HDCTBLL.Them(idhoadon, idmonan, soluong);
-                BABLL.Sua(IDBanAn, "Đã đặt");
-                LoadBanAn();
-                HienThiHoaDon(IDBanAn);
-            }
-            else
-            {
-                string idhoadonhientai = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
-                if (HDCTBLL.LayMonAn(idmonan, idhoadonhientai) == null)    //Khi món ăn chưa tồn tại
+                if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) == null)            //Khi bàn ăn không có hóa đơn nào
                 {
-                    HDCTBLL.Them(idhoadonhientai, idmonan, soluong);
+                    HDBLL.Them(IDBanAn, idhoadon);
+                    HDCTBLL.Them(idhoadon, idmonan, soluong);
+                    BABLL.Sua(IDBanAn, "Đã đặt");
+                    LoadBanAn();
                     HienThiHoaDon(IDBanAn);
                 }
                 else
                 {
-                    HDCTBLL.Sua(idmonan, idhoadonhientai, soluong);
-                    HienThiHoaDon(IDBanAn);
+                    string idhoadonhientai = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
+                    if (HDCTBLL.LayMonAn(idmonan, idhoadonhientai) == null)    //Khi món ăn chưa tồn tại
+                    {
+                        HDCTBLL.Them(idhoadonhientai, idmonan, soluong);
+                        HienThiHoaDon(IDBanAn);
+                    }
+                    else
+                    {
+                        HDCTBLL.Sua(idmonan, idhoadonhientai, soluong);
+                        HienThiHoaDon(IDBanAn);
+                    }
                 }
+            }
+            else
+            {
+                lblThongBao.Text = "Chưa chọn bàn!";
             }
         }
         private void dgvHoaDonChiTiet_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -232,11 +242,17 @@ namespace QLQuanAnForm
 
         private void ftrangchu_Load(object sender, EventArgs e)
         {
-            if(TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).loai == 0)
+            thôngTinCáNhânToolStripMenuItem.Text = TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).tenhienthi;
+            if (TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).loai == 0)
             {
                 adminToolStripMenuItem.Visible = false;
-                thôngTinCáNhânToolStripMenuItem.Text = TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).tenhienthi;
             }
+        }
+
+        private void btnGiamGia_Click(object sender, EventArgs e)
+        {
+            int gg = giamgia - giamgia * int.Parse(numGiamGia.Text) / 100;
+            lblTongTien.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}" + " vnđ", gg);
         }
         #endregion
     }

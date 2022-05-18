@@ -29,17 +29,18 @@ namespace QLQuanAnForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinCáNhânToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHoaDonChiTiet = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtTongTien = new System.Windows.Forms.TextBox();
-            this.numChuyenBan = new System.Windows.Forms.NumericUpDown();
-            this.btnChuyenBan = new System.Windows.Forms.Button();
             this.numGiamGia = new System.Windows.Forms.NumericUpDown();
             this.btnGiamGia = new System.Windows.Forms.Button();
+            this.btnThanhToan = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnTenBan = new System.Windows.Forms.Button();
             this.numSoLuong = new System.Windows.Forms.NumericUpDown();
@@ -47,15 +48,13 @@ namespace QLQuanAnForm
             this.cbbMonAn = new System.Windows.Forms.ComboBox();
             this.cbbDanhMuc = new System.Windows.Forms.ComboBox();
             this.flpBanAn = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnThanhToan = new System.Windows.Forms.Button();
-            this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinCáNhânToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblThongBao = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblTongTien = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonChiTiet)).BeginInit();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numChuyenBan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGiamGia)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
@@ -72,11 +71,36 @@ namespace QLQuanAnForm
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // thôngTinCáNhânToolStripMenuItem
+            // 
+            this.thôngTinCáNhânToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinCáNhânToolStripMenuItem1,
+            this.đăngXuấtToolStripMenuItem});
+            this.thôngTinCáNhânToolStripMenuItem.Image = global::QLQuanAnForm.Properties.Resources.user;
+            this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
+            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
+            this.thôngTinCáNhânToolStripMenuItem.Text = "Trang cá nhân";
+            this.thôngTinCáNhânToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // thôngTinCáNhânToolStripMenuItem1
+            // 
+            this.thôngTinCáNhânToolStripMenuItem1.Name = "thôngTinCáNhânToolStripMenuItem1";
+            this.thôngTinCáNhânToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
+            this.thôngTinCáNhânToolStripMenuItem1.Text = "Thông tin cá nhân";
+            this.thôngTinCáNhânToolStripMenuItem1.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem1_Click);
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            // 
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.adminToolStripMenuItem.Text = "Trang admin";
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.adminToolStripMenuItem.Text = "Trang quản lý";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
             // 
             // panel2
@@ -89,14 +113,14 @@ namespace QLQuanAnForm
             // 
             // dgvHoaDonChiTiet
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDonChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDonChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvHoaDonChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDonChiTiet.Location = new System.Drawing.Point(4, 4);
             this.dgvHoaDonChiTiet.Name = "dgvHoaDonChiTiet";
@@ -106,9 +130,8 @@ namespace QLQuanAnForm
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.txtTongTien);
-            this.panel3.Controls.Add(this.numChuyenBan);
-            this.panel3.Controls.Add(this.btnChuyenBan);
+            this.panel3.Controls.Add(this.lblTongTien);
+            this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.numGiamGia);
             this.panel3.Controls.Add(this.btnGiamGia);
             this.panel3.Controls.Add(this.btnThanhToan);
@@ -117,50 +140,33 @@ namespace QLQuanAnForm
             this.panel3.Size = new System.Drawing.Size(393, 51);
             this.panel3.TabIndex = 4;
             // 
-            // txtTongTien
-            // 
-            this.txtTongTien.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTongTien.ForeColor = System.Drawing.Color.Crimson;
-            this.txtTongTien.Location = new System.Drawing.Point(198, 16);
-            this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.ReadOnly = true;
-            this.txtTongTien.Size = new System.Drawing.Size(100, 20);
-            this.txtTongTien.TabIndex = 7;
-            this.txtTongTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // numChuyenBan
-            // 
-            this.numChuyenBan.Location = new System.Drawing.Point(4, 8);
-            this.numChuyenBan.Name = "numChuyenBan";
-            this.numChuyenBan.Size = new System.Drawing.Size(82, 20);
-            this.numChuyenBan.TabIndex = 5;
-            this.numChuyenBan.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnChuyenBan
-            // 
-            this.btnChuyenBan.Location = new System.Drawing.Point(4, 26);
-            this.btnChuyenBan.Name = "btnChuyenBan";
-            this.btnChuyenBan.Size = new System.Drawing.Size(82, 21);
-            this.btnChuyenBan.TabIndex = 6;
-            this.btnChuyenBan.Text = "Chuyển bàn";
-            this.btnChuyenBan.UseVisualStyleBackColor = true;
-            // 
             // numGiamGia
             // 
-            this.numGiamGia.Location = new System.Drawing.Point(92, 8);
+            this.numGiamGia.Location = new System.Drawing.Point(22, 6);
             this.numGiamGia.Name = "numGiamGia";
-            this.numGiamGia.Size = new System.Drawing.Size(82, 20);
+            this.numGiamGia.Size = new System.Drawing.Size(65, 20);
             this.numGiamGia.TabIndex = 4;
             this.numGiamGia.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnGiamGia
             // 
-            this.btnGiamGia.Location = new System.Drawing.Point(92, 26);
+            this.btnGiamGia.Location = new System.Drawing.Point(5, 24);
             this.btnGiamGia.Name = "btnGiamGia";
             this.btnGiamGia.Size = new System.Drawing.Size(82, 21);
             this.btnGiamGia.TabIndex = 4;
             this.btnGiamGia.Text = "Giảm giá";
             this.btnGiamGia.UseVisualStyleBackColor = true;
+            this.btnGiamGia.Click += new System.EventHandler(this.btnGiamGia_Click);
+            // 
+            // btnThanhToan
+            // 
+            this.btnThanhToan.Location = new System.Drawing.Point(308, 3);
+            this.btnThanhToan.Name = "btnThanhToan";
+            this.btnThanhToan.Size = new System.Drawing.Size(82, 44);
+            this.btnThanhToan.TabIndex = 3;
+            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.UseVisualStyleBackColor = true;
+            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // panel4
             // 
@@ -238,46 +244,46 @@ namespace QLQuanAnForm
             this.flpBanAn.Size = new System.Drawing.Size(436, 311);
             this.flpBanAn.TabIndex = 6;
             // 
-            // btnThanhToan
+            // lblThongBao
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(308, 3);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(82, 44);
-            this.btnThanhToan.TabIndex = 3;
-            this.btnThanhToan.Text = "Thanh toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            this.lblThongBao.AutoSize = true;
+            this.lblThongBao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblThongBao.ForeColor = System.Drawing.Color.Red;
+            this.lblThongBao.Location = new System.Drawing.Point(755, 11);
+            this.lblThongBao.Name = "lblThongBao";
+            this.lblThongBao.Size = new System.Drawing.Size(0, 13);
+            this.lblThongBao.TabIndex = 7;
             // 
-            // thôngTinCáNhânToolStripMenuItem
+            // textBox1
             // 
-            this.thôngTinCáNhânToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinCáNhânToolStripMenuItem1,
-            this.đăngXuấtToolStripMenuItem});
-            this.thôngTinCáNhânToolStripMenuItem.Image = global::QLQuanAnForm.Properties.Resources.user;
-            this.thôngTinCáNhânToolStripMenuItem.Name = "thôngTinCáNhânToolStripMenuItem";
-            this.thôngTinCáNhânToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.thôngTinCáNhânToolStripMenuItem.Text = "Trang cá nhân";
-            this.thôngTinCáNhânToolStripMenuItem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.textBox1.Location = new System.Drawing.Point(5, 6);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(18, 20);
+            this.textBox1.TabIndex = 8;
+            this.textBox1.Text = "%";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // thôngTinCáNhânToolStripMenuItem1
+            // lblTongTien
             // 
-            this.thôngTinCáNhânToolStripMenuItem1.Name = "thôngTinCáNhânToolStripMenuItem1";
-            this.thôngTinCáNhânToolStripMenuItem1.Size = new System.Drawing.Size(170, 22);
-            this.thôngTinCáNhânToolStripMenuItem1.Text = "Thông tin cá nhân";
-            this.thôngTinCáNhânToolStripMenuItem1.Click += new System.EventHandler(this.thôngTinCáNhânToolStripMenuItem1_Click);
-            // 
-            // đăngXuấtToolStripMenuItem
-            // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            this.đăngXuấtToolStripMenuItem.Click += new System.EventHandler(this.đăngXuấtToolStripMenuItem_Click);
+            this.lblTongTien.AutoSize = true;
+            this.lblTongTien.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.lblTongTien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTongTien.ForeColor = System.Drawing.Color.Red;
+            this.lblTongTien.Location = new System.Drawing.Point(197, 22);
+            this.lblTongTien.Name = "lblTongTien";
+            this.lblTongTien.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.lblTongTien.Size = new System.Drawing.Size(108, 23);
+            this.lblTongTien.TabIndex = 10;
+            this.lblTongTien.Text = "Tổng tiền: 0 vnđ";
             // 
             // ftrangchu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 358);
+            this.Controls.Add(this.lblThongBao);
             this.Controls.Add(this.flpBanAn);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -294,7 +300,6 @@ namespace QLQuanAnForm
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonChiTiet)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numChuyenBan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numGiamGia)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
@@ -320,10 +325,10 @@ namespace QLQuanAnForm
         private System.Windows.Forms.FlowLayoutPanel flpBanAn;
         private System.Windows.Forms.NumericUpDown numGiamGia;
         private System.Windows.Forms.Button btnGiamGia;
-        private System.Windows.Forms.NumericUpDown numChuyenBan;
-        private System.Windows.Forms.Button btnChuyenBan;
         private System.Windows.Forms.DataGridView dgvHoaDonChiTiet;
-        private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Button btnTenBan;
+        private System.Windows.Forms.Label lblThongBao;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label lblTongTien;
     }
 }

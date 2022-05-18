@@ -93,9 +93,6 @@ namespace QLQuanAnForm
             this.button6 = new System.Windows.Forms.Button();
             this.panel25 = new System.Windows.Forms.Panel();
             this.btnResetMatKhau = new System.Windows.Forms.Button();
-            this.panel27 = new System.Windows.Forms.Panel();
-            this.cbbLoai = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel28 = new System.Windows.Forms.Panel();
             this.txtTenHienThi = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -103,7 +100,6 @@ namespace QLQuanAnForm
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.panel30 = new System.Windows.Forms.Panel();
-            this.btnXemTaiKhoan = new System.Windows.Forms.Button();
             this.btnSuaTaiKhoan = new System.Windows.Forms.Button();
             this.btnXoaTaiKhoan = new System.Windows.Forms.Button();
             this.btnThemTaiKhoan = new System.Windows.Forms.Button();
@@ -146,7 +142,6 @@ namespace QLQuanAnForm
             this.tpTaiKhoan.SuspendLayout();
             this.panel24.SuspendLayout();
             this.panel25.SuspendLayout();
-            this.panel27.SuspendLayout();
             this.panel28.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel30.SuspendLayout();
@@ -741,7 +736,6 @@ namespace QLQuanAnForm
             // panel25
             // 
             this.panel25.Controls.Add(this.btnResetMatKhau);
-            this.panel25.Controls.Add(this.panel27);
             this.panel25.Controls.Add(this.panel28);
             this.panel25.Controls.Add(this.panel29);
             this.panel25.Location = new System.Drawing.Point(319, 50);
@@ -751,39 +745,14 @@ namespace QLQuanAnForm
             // 
             // btnResetMatKhau
             // 
-            this.btnResetMatKhau.Location = new System.Drawing.Point(131, 159);
+            this.btnResetMatKhau.Enabled = false;
+            this.btnResetMatKhau.Location = new System.Drawing.Point(131, 97);
             this.btnResetMatKhau.Name = "btnResetMatKhau";
             this.btnResetMatKhau.Size = new System.Drawing.Size(67, 38);
             this.btnResetMatKhau.TabIndex = 6;
             this.btnResetMatKhau.Text = "Reset mật khẩu";
             this.btnResetMatKhau.UseVisualStyleBackColor = true;
-            // 
-            // panel27
-            // 
-            this.panel27.Controls.Add(this.cbbLoai);
-            this.panel27.Controls.Add(this.label12);
-            this.panel27.Location = new System.Drawing.Point(3, 97);
-            this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(198, 41);
-            this.panel27.TabIndex = 5;
-            // 
-            // cbbLoai
-            // 
-            this.cbbLoai.FormattingEnabled = true;
-            this.cbbLoai.Location = new System.Drawing.Point(95, 11);
-            this.cbbLoai.Name = "cbbLoai";
-            this.cbbLoai.Size = new System.Drawing.Size(100, 21);
-            this.cbbLoai.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 13);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(34, 15);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Loại:";
+            this.btnResetMatKhau.Click += new System.EventHandler(this.btnResetMatKhau_Click);
             // 
             // panel28
             // 
@@ -826,6 +795,7 @@ namespace QLQuanAnForm
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(100, 20);
             this.txtTenDangNhap.TabIndex = 1;
+            this.txtTenDangNhap.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTenDangNhap_KeyUp);
             // 
             // label14
             // 
@@ -839,7 +809,6 @@ namespace QLQuanAnForm
             // 
             // panel30
             // 
-            this.panel30.Controls.Add(this.btnXemTaiKhoan);
             this.panel30.Controls.Add(this.btnSuaTaiKhoan);
             this.panel30.Controls.Add(this.btnXoaTaiKhoan);
             this.panel30.Controls.Add(this.btnThemTaiKhoan);
@@ -848,35 +817,31 @@ namespace QLQuanAnForm
             this.panel30.Size = new System.Drawing.Size(309, 41);
             this.panel30.TabIndex = 5;
             // 
-            // btnXemTaiKhoan
-            // 
-            this.btnXemTaiKhoan.Location = new System.Drawing.Point(219, 0);
-            this.btnXemTaiKhoan.Name = "btnXemTaiKhoan";
-            this.btnXemTaiKhoan.Size = new System.Drawing.Size(67, 38);
-            this.btnXemTaiKhoan.TabIndex = 3;
-            this.btnXemTaiKhoan.Text = "Xem";
-            this.btnXemTaiKhoan.UseVisualStyleBackColor = true;
-            // 
             // btnSuaTaiKhoan
             // 
+            this.btnSuaTaiKhoan.Enabled = false;
             this.btnSuaTaiKhoan.Location = new System.Drawing.Point(146, 0);
             this.btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
             this.btnSuaTaiKhoan.Size = new System.Drawing.Size(67, 38);
             this.btnSuaTaiKhoan.TabIndex = 2;
             this.btnSuaTaiKhoan.Text = "Sửa";
             this.btnSuaTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnSuaTaiKhoan.Click += new System.EventHandler(this.btnSuaTaiKhoan_Click);
             // 
             // btnXoaTaiKhoan
             // 
+            this.btnXoaTaiKhoan.Enabled = false;
             this.btnXoaTaiKhoan.Location = new System.Drawing.Point(73, 0);
             this.btnXoaTaiKhoan.Name = "btnXoaTaiKhoan";
             this.btnXoaTaiKhoan.Size = new System.Drawing.Size(67, 38);
             this.btnXoaTaiKhoan.TabIndex = 1;
             this.btnXoaTaiKhoan.Text = "Xóa";
             this.btnXoaTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnXoaTaiKhoan.Click += new System.EventHandler(this.btnXoaTaiKhoan_Click);
             // 
             // btnThemTaiKhoan
             // 
+            this.btnThemTaiKhoan.Enabled = false;
             this.btnThemTaiKhoan.Location = new System.Drawing.Point(0, 0);
             this.btnThemTaiKhoan.Name = "btnThemTaiKhoan";
             this.btnThemTaiKhoan.Size = new System.Drawing.Size(67, 38);
@@ -900,6 +865,7 @@ namespace QLQuanAnForm
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
             this.dgvTaiKhoan.Size = new System.Drawing.Size(289, 257);
             this.dgvTaiKhoan.TabIndex = 0;
+            this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             // 
             // tpDoanhThu
             // 
@@ -1012,8 +978,6 @@ namespace QLQuanAnForm
             this.panel24.ResumeLayout(false);
             this.panel24.PerformLayout();
             this.panel25.ResumeLayout(false);
-            this.panel27.ResumeLayout(false);
-            this.panel27.PerformLayout();
             this.panel28.ResumeLayout(false);
             this.panel28.PerformLayout();
             this.panel29.ResumeLayout(false);
@@ -1100,9 +1064,6 @@ namespace QLQuanAnForm
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel25;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.ComboBox cbbLoai;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Panel panel28;
         private System.Windows.Forms.TextBox txtTenHienThi;
         private System.Windows.Forms.Label label13;
@@ -1110,7 +1071,6 @@ namespace QLQuanAnForm
         private System.Windows.Forms.TextBox txtTenDangNhap;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Button btnXemTaiKhoan;
         private System.Windows.Forms.Button btnSuaTaiKhoan;
         private System.Windows.Forms.Button btnXoaTaiKhoan;
         private System.Windows.Forms.Button btnThemTaiKhoan;

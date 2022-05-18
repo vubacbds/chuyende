@@ -54,8 +54,15 @@ namespace QLQuanAnForm
                 {
                     if(TKBLL.KiemTraDangNhap(tendangnhap, txtMatKhau.Text) == true)
                     {
-                        TKBLL.Sua(tendangnhap, txtTenHienThi.Text, txtMatKhauMoi.Text);
-                        MessageBox.Show("Đổi mật khẩu thành công");
+                        try
+                        {
+                            TKBLL.Sua(tendangnhap, txtTenHienThi.Text, txtMatKhauMoi.Text);
+                            MessageBox.Show("Đổi mật khẩu thành công!");
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Đổi mật khẩu thất bại!");
+                        }
                     }
                     else
                     {
@@ -72,8 +79,15 @@ namespace QLQuanAnForm
             }
             else
             {
-                TKBLL.Sua(tendangnhap, txtTenHienThi.Text, null);
-                MessageBox.Show("Đổi đổi tên hiểu thị thành công");
+                try
+                {
+                    TKBLL.Sua(tendangnhap, txtTenHienThi.Text, null);
+                    MessageBox.Show("Đổi đổi tên hiểu thị thành công!");
+                }
+                catch
+                {
+                    MessageBox.Show("Đổi đổi tên hiểu thị thất bại!");
+                }
             }
             
             #endregion
