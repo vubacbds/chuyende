@@ -277,6 +277,8 @@ namespace DAL
 		
 		private string _ten;
 		
+		private byte _trangthai;
+		
 		private EntitySet<MonAn> _MonAns;
 		
     #region Extensibility Method Definitions
@@ -287,6 +289,8 @@ namespace DAL
     partial void OnidChanged();
     partial void OntenChanging(string value);
     partial void OntenChanged();
+    partial void OntrangthaiChanging(byte value);
+    partial void OntrangthaiChanged();
     #endregion
 		
 		public DanhMuc()
@@ -331,6 +335,26 @@ namespace DAL
 					this._ten = value;
 					this.SendPropertyChanged("ten");
 					this.OntenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_trangthai", DbType="TinyInt NOT NULL")]
+		public byte trangthai
+		{
+			get
+			{
+				return this._trangthai;
+			}
+			set
+			{
+				if ((this._trangthai != value))
+				{
+					this.OntrangthaiChanging(value);
+					this.SendPropertyChanging();
+					this._trangthai = value;
+					this.SendPropertyChanged("trangthai");
+					this.OntrangthaiChanged();
 				}
 			}
 		}
@@ -838,6 +862,8 @@ namespace DAL
 		
 		private double _gia;
 		
+		private byte _trangthai;
+		
 		private EntitySet<HoaDonChiTiet> _HoaDonChiTiets;
 		
 		private EntityRef<DanhMuc> _DanhMuc;
@@ -854,6 +880,8 @@ namespace DAL
     partial void OniddanhmucChanged();
     partial void OngiaChanging(double value);
     partial void OngiaChanged();
+    partial void OntrangthaiChanging(byte value);
+    partial void OntrangthaiChanged();
     #endregion
 		
 		public MonAn()
@@ -943,6 +971,26 @@ namespace DAL
 					this._gia = value;
 					this.SendPropertyChanged("gia");
 					this.OngiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_trangthai", DbType="TinyInt NOT NULL")]
+		public byte trangthai
+		{
+			get
+			{
+				return this._trangthai;
+			}
+			set
+			{
+				if ((this._trangthai != value))
+				{
+					this.OntrangthaiChanging(value);
+					this.SendPropertyChanging();
+					this._trangthai = value;
+					this.SendPropertyChanged("trangthai");
+					this.OntrangthaiChanged();
 				}
 			}
 		}

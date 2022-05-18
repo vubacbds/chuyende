@@ -29,6 +29,7 @@ namespace QLQuanAnForm
             InitializeComponent();
             LoadBanAn();
             LoadDanhMuc();
+            LoadTenHienThi();
         }
         private string tendangnhap;
 
@@ -112,6 +113,15 @@ namespace QLQuanAnForm
                 lblTongTien.Text = "Tổng tiền: 0 vnđ";
             }
         }
+        void LoadTenHienThi()
+        {
+            thôngTinCáNhânToolStripMenuItem.Text = TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).tenhienthi;
+
+            if (TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).loai == 0)
+            {
+                adminToolStripMenuItem.Visible = false;
+            }
+        }
         #endregion
 
         #region Events
@@ -139,8 +149,16 @@ namespace QLQuanAnForm
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             fadmin f = new fadmin();
+            f.FormClosed += F_FormClosed2;
             f.ShowDialog();
         }
+
+        private void F_FormClosed2(object sender, FormClosedEventArgs e)
+        {
+            LoadBanAn();
+            LoadDanhMuc();
+        }
+
         private void cbbDanhMuc_SelectedIndexChanged(object sender, EventArgs e)
         {
             ComboBox cb = sender as ComboBox;
@@ -238,15 +256,6 @@ namespace QLQuanAnForm
                     HienThiHoaDon(IDBanAn);
                 }
             }   
-        }
-
-        private void ftrangchu_Load(object sender, EventArgs e)
-        {
-            thôngTinCáNhânToolStripMenuItem.Text = TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).tenhienthi;
-            if (TKBLL.LayTaiKhoanTheoTenDangNhap(tendangnhap).loai == 0)
-            {
-                adminToolStripMenuItem.Visible = false;
-            }
         }
 
         private void btnGiamGia_Click(object sender, EventArgs e)

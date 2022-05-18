@@ -66,6 +66,10 @@ namespace BLL
             }
             DB.SubmitChanges();
         }
+        public HoaDonChiTiet KiemTraHDCTCoMonChua(int idmonan)
+        {
+            return DB.HoaDonChiTiets.Where(hdct => hdct.idmonan == idmonan).FirstOrDefault();
+        }
 
     }
 }

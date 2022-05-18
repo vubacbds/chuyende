@@ -29,6 +29,9 @@ namespace QLQuanAnForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpDanhMuc = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -39,7 +42,6 @@ namespace QLQuanAnForm
             this.txtIdDanhMuc = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.btnXemDanhMuc = new System.Windows.Forms.Button();
             this.btnSuaDanhMuc = new System.Windows.Forms.Button();
             this.btnXoaDanhMuc = new System.Windows.Forms.Button();
             this.btnThemDanhMuc = new System.Windows.Forms.Button();
@@ -63,7 +65,6 @@ namespace QLQuanAnForm
             this.txtIdMonAn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btnXemMonAn = new System.Windows.Forms.Button();
             this.btnSuaMonAn = new System.Windows.Forms.Button();
             this.btnXoaMonAn = new System.Windows.Forms.Button();
             this.btnThemMonAn = new System.Windows.Forms.Button();
@@ -199,10 +200,11 @@ namespace QLQuanAnForm
             // 
             // txtTenDanhMuc
             // 
-            this.txtTenDanhMuc.Location = new System.Drawing.Point(91, 10);
+            this.txtTenDanhMuc.Location = new System.Drawing.Point(36, 10);
             this.txtTenDanhMuc.Name = "txtTenDanhMuc";
-            this.txtTenDanhMuc.Size = new System.Drawing.Size(104, 20);
+            this.txtTenDanhMuc.Size = new System.Drawing.Size(159, 20);
             this.txtTenDanhMuc.TabIndex = 1;
+            this.txtTenDanhMuc.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTenDanhMuc_KeyUp);
             // 
             // label7
             // 
@@ -210,9 +212,9 @@ namespace QLQuanAnForm
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 12);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 15);
+            this.label7.Size = new System.Drawing.Size(31, 15);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Tên danh mục:";
+            this.label7.Text = "Tên:";
             // 
             // panel16
             // 
@@ -225,10 +227,10 @@ namespace QLQuanAnForm
             // 
             // txtIdDanhMuc
             // 
-            this.txtIdDanhMuc.Location = new System.Drawing.Point(91, 10);
+            this.txtIdDanhMuc.Location = new System.Drawing.Point(36, 10);
             this.txtIdDanhMuc.Name = "txtIdDanhMuc";
             this.txtIdDanhMuc.ReadOnly = true;
-            this.txtIdDanhMuc.Size = new System.Drawing.Size(104, 20);
+            this.txtIdDanhMuc.Size = new System.Drawing.Size(159, 20);
             this.txtIdDanhMuc.TabIndex = 1;
             // 
             // label8
@@ -237,13 +239,12 @@ namespace QLQuanAnForm
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 15);
+            this.label8.Size = new System.Drawing.Size(21, 15);
             this.label8.TabIndex = 0;
-            this.label8.Text = "id:";
+            this.label8.Text = "ID:";
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.btnXemDanhMuc);
             this.panel17.Controls.Add(this.btnSuaDanhMuc);
             this.panel17.Controls.Add(this.btnXoaDanhMuc);
             this.panel17.Controls.Add(this.btnThemDanhMuc);
@@ -252,41 +253,38 @@ namespace QLQuanAnForm
             this.panel17.Size = new System.Drawing.Size(309, 41);
             this.panel17.TabIndex = 5;
             // 
-            // btnXemDanhMuc
-            // 
-            this.btnXemDanhMuc.Location = new System.Drawing.Point(219, 0);
-            this.btnXemDanhMuc.Name = "btnXemDanhMuc";
-            this.btnXemDanhMuc.Size = new System.Drawing.Size(67, 38);
-            this.btnXemDanhMuc.TabIndex = 3;
-            this.btnXemDanhMuc.Text = "Xem";
-            this.btnXemDanhMuc.UseVisualStyleBackColor = true;
-            // 
             // btnSuaDanhMuc
             // 
+            this.btnSuaDanhMuc.Enabled = false;
             this.btnSuaDanhMuc.Location = new System.Drawing.Point(146, 0);
             this.btnSuaDanhMuc.Name = "btnSuaDanhMuc";
             this.btnSuaDanhMuc.Size = new System.Drawing.Size(67, 38);
             this.btnSuaDanhMuc.TabIndex = 2;
             this.btnSuaDanhMuc.Text = "Sửa";
             this.btnSuaDanhMuc.UseVisualStyleBackColor = true;
+            this.btnSuaDanhMuc.Click += new System.EventHandler(this.btnSuaDanhMuc_Click);
             // 
             // btnXoaDanhMuc
             // 
+            this.btnXoaDanhMuc.Enabled = false;
             this.btnXoaDanhMuc.Location = new System.Drawing.Point(73, 0);
             this.btnXoaDanhMuc.Name = "btnXoaDanhMuc";
             this.btnXoaDanhMuc.Size = new System.Drawing.Size(67, 38);
             this.btnXoaDanhMuc.TabIndex = 1;
             this.btnXoaDanhMuc.Text = "Xóa";
             this.btnXoaDanhMuc.UseVisualStyleBackColor = true;
+            this.btnXoaDanhMuc.Click += new System.EventHandler(this.btnXoaDanhMuc_Click);
             // 
             // btnThemDanhMuc
             // 
+            this.btnThemDanhMuc.Enabled = false;
             this.btnThemDanhMuc.Location = new System.Drawing.Point(0, 0);
             this.btnThemDanhMuc.Name = "btnThemDanhMuc";
             this.btnThemDanhMuc.Size = new System.Drawing.Size(67, 38);
             this.btnThemDanhMuc.TabIndex = 0;
             this.btnThemDanhMuc.Text = "Thêm";
             this.btnThemDanhMuc.UseVisualStyleBackColor = true;
+            this.btnThemDanhMuc.Click += new System.EventHandler(this.btnThemDanhMuc_Click);
             // 
             // panel18
             // 
@@ -298,11 +296,20 @@ namespace QLQuanAnForm
             // 
             // dgvDanhMuc
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDanhMuc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhMuc.Location = new System.Drawing.Point(-3, 4);
             this.dgvDanhMuc.Name = "dgvDanhMuc";
             this.dgvDanhMuc.Size = new System.Drawing.Size(289, 257);
             this.dgvDanhMuc.TabIndex = 0;
+            this.dgvDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellClick);
             // 
             // tpMonAn
             // 
@@ -427,6 +434,7 @@ namespace QLQuanAnForm
             this.txtTenMonAn.Name = "txtTenMonAn";
             this.txtTenMonAn.Size = new System.Drawing.Size(119, 20);
             this.txtTenMonAn.TabIndex = 1;
+            this.txtTenMonAn.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtTenMonAn_KeyUp);
             // 
             // label1
             // 
@@ -467,7 +475,6 @@ namespace QLQuanAnForm
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btnXemMonAn);
             this.panel4.Controls.Add(this.btnSuaMonAn);
             this.panel4.Controls.Add(this.btnXoaMonAn);
             this.panel4.Controls.Add(this.btnThemMonAn);
@@ -476,41 +483,38 @@ namespace QLQuanAnForm
             this.panel4.Size = new System.Drawing.Size(309, 41);
             this.panel4.TabIndex = 1;
             // 
-            // btnXemMonAn
-            // 
-            this.btnXemMonAn.Location = new System.Drawing.Point(219, 0);
-            this.btnXemMonAn.Name = "btnXemMonAn";
-            this.btnXemMonAn.Size = new System.Drawing.Size(67, 38);
-            this.btnXemMonAn.TabIndex = 3;
-            this.btnXemMonAn.Text = "Xem";
-            this.btnXemMonAn.UseVisualStyleBackColor = true;
-            // 
             // btnSuaMonAn
             // 
+            this.btnSuaMonAn.Enabled = false;
             this.btnSuaMonAn.Location = new System.Drawing.Point(146, 0);
             this.btnSuaMonAn.Name = "btnSuaMonAn";
             this.btnSuaMonAn.Size = new System.Drawing.Size(67, 38);
             this.btnSuaMonAn.TabIndex = 2;
             this.btnSuaMonAn.Text = "Sửa";
             this.btnSuaMonAn.UseVisualStyleBackColor = true;
+            this.btnSuaMonAn.Click += new System.EventHandler(this.btnSuaMonAn_Click);
             // 
             // btnXoaMonAn
             // 
+            this.btnXoaMonAn.Enabled = false;
             this.btnXoaMonAn.Location = new System.Drawing.Point(73, 0);
             this.btnXoaMonAn.Name = "btnXoaMonAn";
             this.btnXoaMonAn.Size = new System.Drawing.Size(67, 38);
             this.btnXoaMonAn.TabIndex = 1;
             this.btnXoaMonAn.Text = "Xóa";
             this.btnXoaMonAn.UseVisualStyleBackColor = true;
+            this.btnXoaMonAn.Click += new System.EventHandler(this.btnXoaMonAn_Click);
             // 
             // btnThemMonAn
             // 
+            this.btnThemMonAn.Enabled = false;
             this.btnThemMonAn.Location = new System.Drawing.Point(0, 0);
             this.btnThemMonAn.Name = "btnThemMonAn";
             this.btnThemMonAn.Size = new System.Drawing.Size(67, 38);
             this.btnThemMonAn.TabIndex = 0;
             this.btnThemMonAn.Text = "Thêm";
             this.btnThemMonAn.UseVisualStyleBackColor = true;
+            this.btnThemMonAn.Click += new System.EventHandler(this.btnThemMonAn_Click);
             // 
             // panel3
             // 
@@ -522,11 +526,20 @@ namespace QLQuanAnForm
             // 
             // dgvMonAn
             // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMonAn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMonAn.Location = new System.Drawing.Point(-3, 4);
             this.dgvMonAn.Name = "dgvMonAn";
             this.dgvMonAn.Size = new System.Drawing.Size(289, 257);
             this.dgvMonAn.TabIndex = 0;
+            this.dgvMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonAn_CellClick);
             // 
             // tpBanAn
             // 
@@ -860,6 +873,14 @@ namespace QLQuanAnForm
             // 
             // dgvTaiKhoan
             // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaiKhoan.Location = new System.Drawing.Point(-3, 4);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
@@ -1013,7 +1034,6 @@ namespace QLQuanAnForm
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView dgvHoaDon;
-        private System.Windows.Forms.Button btnXemMonAn;
         private System.Windows.Forms.Button btnSuaMonAn;
         private System.Windows.Forms.Button btnXoaMonAn;
         private System.Windows.Forms.TextBox txtTimMonAn;
@@ -1038,7 +1058,6 @@ namespace QLQuanAnForm
         private System.Windows.Forms.TextBox txtIdDanhMuc;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel17;
-        private System.Windows.Forms.Button btnXemDanhMuc;
         private System.Windows.Forms.Button btnSuaDanhMuc;
         private System.Windows.Forms.Button btnXoaDanhMuc;
         private System.Windows.Forms.Button btnThemDanhMuc;

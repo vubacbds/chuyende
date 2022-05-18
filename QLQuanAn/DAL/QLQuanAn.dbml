@@ -12,6 +12,7 @@
     <Type Name="DanhMuc">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="trangthai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="DanhMuc_MonAn" Member="MonAns" ThisKey="id" OtherKey="iddanhmuc" Type="MonAn" />
     </Type>
   </Table>
@@ -42,6 +43,7 @@
       <Column Name="ten" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Column Name="iddanhmuc" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="gia" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="trangthai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="MonAn_HoaDonChiTiet" Member="HoaDonChiTiets" ThisKey="id" OtherKey="idmonan" Type="HoaDonChiTiet" />
       <Association Name="DanhMuc_MonAn" Member="DanhMuc" ThisKey="iddanhmuc" OtherKey="id" Type="DanhMuc" IsForeignKey="true" />
     </Type>

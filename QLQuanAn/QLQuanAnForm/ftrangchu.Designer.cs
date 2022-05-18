@@ -293,7 +293,6 @@ namespace QLQuanAnForm
             this.Name = "ftrangchu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Phần mềm quản lý quán ăn";
-            this.Load += new System.EventHandler(this.ftrangchu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
