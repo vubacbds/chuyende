@@ -66,9 +66,16 @@ namespace QLQuanAnForm
         }
         void LoadMonAnTheoDanhMuc(int id)
         {
-            cbbMonAn.DataSource = MABLL.LayTheoIDDanhMuc(id).ToList();
-            cbbMonAn.DisplayMember = "ten";    //Hiện tên
-            cbbMonAn.ValueMember = "id";
+            if (MABLL.KiemTraDanhMucCoMonChua(id)!=null)
+            {
+                cbbMonAn.DataSource = MABLL.LayTheoIDDanhMuc(id).ToList();
+                cbbMonAn.DisplayMember = "ten";    //Hiện tên
+                cbbMonAn.ValueMember = "id";
+            }
+            else
+            {
+                cbbMonAn.DataSource = null;
+            }
         }
         void HienThiHoaDon(int IDBanAn)
         {
@@ -169,7 +176,12 @@ namespace QLQuanAnForm
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(IDBanAn != 0)
+            if (cbbMonAn.SelectedValue == null)
+            {
+                MessageBox.Show("Bạn thiếu món ăn");
+                return;
+            }
+            if (IDBanAn != 0)
             {
                 int idmonan = int.Parse(cbbMonAn.SelectedValue.ToString());
                 int soluong = int.Parse(numSoLuong.Value.ToString());
