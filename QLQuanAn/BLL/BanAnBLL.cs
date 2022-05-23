@@ -14,15 +14,36 @@ namespace BLL
         {
             return DB.BanAns.ToList();
         }
-        public void Sua(int idbandan, string trangthai)
+        public void Sua(int idbandan, string trangthai, string tenbanan)
         {
             BanAn ba = DB.BanAns.FirstOrDefault(b => b.id == idbandan);
-            ba.trangthai = trangthai;
+            if (trangthai != null)
+            {
+                ba.trangthai = trangthai;
+            }
+            if (tenbanan != null)
+            {
+                ba.ten = tenbanan;
+            }
             DB.SubmitChanges();
         }
-        public string LayTenBanAn(int idbanan)
+        public BanAn LayBanAnTheoID(int idbanan)
         {
-            return DB.BanAns.Where(b => b.id == idbanan).FirstOrDefault().ten;
+            return DB.BanAns.Where(b => b.id == idbanan).FirstOrDefault();
+        }
+        public void Them(string tenban)
+        {
+            BanAn ba = new BanAn();
+            ba.ten = tenban;
+            ba.trangthai = "Trống";
+            DB.BanAns.InsertOnSubmit(ba);
+            DB.SubmitChanges();
+        }
+        public void Xoa(int id)
+        {
+            BanAn ba = DB.BanAns.Where(b => b.id == id).FirstOrDefault();
+            DB.BanAns.DeleteOnSubmit(ba);
+            DB.SubmitChanges();
         }
     }
 }

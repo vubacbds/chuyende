@@ -191,7 +191,7 @@ namespace QLQuanAnForm
                 {
                     HDBLL.Them(IDBanAn, idhoadon);
                     HDCTBLL.Them(idhoadon, idmonan, soluong);
-                    BABLL.Sua(IDBanAn, "Đã đặt");
+                    BABLL.Sua(IDBanAn, "Đã đặt", null);
                     LoadBanAn();
                     HienThiHoaDon(IDBanAn);
                 }
@@ -231,7 +231,7 @@ namespace QLQuanAnForm
                 if(HDCTBLL.KiemTraHoaDonTonTaiMonAn(idhoadon) == null)  //Khi xóa 1 hàng mà hết món thì xóa luôn hóa đơn
                 {
                     HDBLL.Xoa(idhoadon);
-                    BABLL.Sua(IDBanAn, "Trống");
+                    BABLL.Sua(IDBanAn, "Trống", null);
                     LoadBanAn();
                 }
                 HienThiHoaDon(IDBanAn);
@@ -242,11 +242,11 @@ namespace QLQuanAnForm
         {
             if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) != null)
             {
-                string tenbanan = BABLL.LayTenBanAn(IDBanAn);
+                string tenbanan = BABLL.LayBanAnTheoID(IDBanAn).ten;
                 if (MessageBox.Show("Bạn có chắc thanh toán tiền cho '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                 {
                     HDBLL.Sua(IDBanAn);
-                    BABLL.Sua(IDBanAn, "Trống");
+                    BABLL.Sua(IDBanAn, "Trống", null);
                     LoadBanAn();
                     HienThiHoaDon(IDBanAn);
                 }
@@ -258,12 +258,12 @@ namespace QLQuanAnForm
             if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) != null)
             {
                 string idhoadonhientai = HDBLL.LayHoaDonTheoIDBanAn(IDBanAn).id;
-                string tenbanan = BABLL.LayTenBanAn(IDBanAn);
+                string tenbanan = BABLL.LayBanAnTheoID(IDBanAn).ten;
                 if (MessageBox.Show("Bạn có chắc xóa hết món '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                 {
                     HDCTBLL.XoaTatCa(idhoadonhientai);
                     HDBLL.Xoa(idhoadonhientai);
-                    BABLL.Sua(IDBanAn, "Trống");
+                    BABLL.Sua(IDBanAn, "Trống", null);
                     LoadBanAn();
                     HienThiHoaDon(IDBanAn);
                 }

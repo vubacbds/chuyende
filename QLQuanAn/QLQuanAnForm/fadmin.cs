@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DAL;
 using BLL;
+using System.Globalization;
 
 namespace QLQuanAnForm
 {
@@ -18,25 +19,28 @@ namespace QLQuanAnForm
         DanhMucBLL DMBLL = new DanhMucBLL();
         MonAnBLL MABLL = new MonAnBLL();
         HoaDonChiTietBLL HDCTBLL = new HoaDonChiTietBLL();
+        HoaDonBLL HDBLL = new HoaDonBLL();
+        BanAnBLL BABLL = new BanAnBLL();
         public fadmin()
         {
             InitializeComponent();
             LoadDanhMuc();
             LoadMonAn();
             LoadTaiKhoan();
+            LoadBanAn();
         }
         #region Methods
         void LoadTaiKhoan()
         {
-            var kq = from h in TKBLL.LayTatCa() select new { h.tendangnhap, h.tenhienthi };
-            dgvTaiKhoan.DataSource = kq.ToList();
+            //var kq = from h in TKBLL.LayTatCa() select new { h.tendangnhap, h.tenhienthi };
+            dgvTaiKhoan.DataSource = TKBLL.LayTatCa().ToList();
             #region Định dạng Datagridview
             dgvTaiKhoan.Columns["tenhienthi"].HeaderText = "Tên hiển thị";
             dgvTaiKhoan.Columns["tendangnhap"].HeaderText = "Tên đăng nhập";
             dgvTaiKhoan.Columns["tendangnhap"].Width = 100;
             dgvTaiKhoan.Columns["tenhienthi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-           
+            dgvTaiKhoan.Columns[2].Visible = false;
+            dgvTaiKhoan.Columns[3].Visible = false;
             #endregion
         }
         void LoadDanhMuc()
@@ -69,6 +73,18 @@ namespace QLQuanAnForm
             dgvMonAn.Columns[2].Visible = false;
             dgvMonAn.Columns[4].Visible = false;
             dgvMonAn.Columns[5].Visible = false;
+            #endregion
+        }
+        void LoadBanAn()
+        {
+            dgvBanAn.DataSource = BABLL.LayTatCa();
+            #region Định dạng Datagridview
+            dgvBanAn.Columns["ten"].HeaderText = "Tên bàn ăn";
+            dgvBanAn.Columns["trangthai"].HeaderText = "Trạng thái";
+            dgvBanAn.Columns["trangthai"].Width = 80;
+            dgvBanAn.Columns["ten"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvBanAn.Columns["trangthai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dgvBanAn.Columns[0].Visible = false;
             #endregion
         }
         #endregion
@@ -180,6 +196,15 @@ namespace QLQuanAnForm
             else
             {
                 btnThemTaiKhoan.Enabled = false;
+            }
+        }
+        private void btnTimTaiKhoan_Click(object sender, EventArgs e)
+        {
+            var query = TKBLL.LayTatCa().Where(t => t.tendangnhap.ToLower().Contains(txtTimTaiKhoan.Text.ToLower()));
+            dgvTaiKhoan.DataSource = query.ToList();
+            if (txtTimTaiKhoan.Text == "")
+            {
+                LoadTaiKhoan();
             }
         }
         #endregion
@@ -332,13 +357,13 @@ namespace QLQuanAnForm
 
         private void txtTenMonAn_KeyUp(object sender, KeyEventArgs e)
         {
-            if (txtTenMonAn.Text != null)
+            if (txtTenMonAn.Text != "")
             {
                 btnThemMonAn.Enabled = true;
             }
             else
             {
-                btnThemDanhMuc.Enabled = false;
+                btnThemMonAn.Enabled = false;
             }
         }
 
@@ -376,6 +401,11 @@ namespace QLQuanAnForm
         }
         private void btnSuaMonAn_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtTenMonAn.Text))
+            {
+                MessageBox.Show("Bạn thiếu tên món");
+                return;
+            }
             try
             {
                 int iddanhmuc = int.Parse(cbbDanhMuc.SelectedValue.ToString());
@@ -389,8 +419,118 @@ namespace QLQuanAnForm
             }
         }
         #endregion
+        #region Events Bàn án
+        private void btnThemBanAn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTenBanAn.Text))
+            {
+                MessageBox.Show("Bạn thiếu tên bàn ăn");
+                return;
+            }
+            BABLL.Them(txtTenBanAn.Text);
+            LoadBanAn();
+        }
+        private void dgvBanAn_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowi = e.RowIndex;
+            if (rowi < 0 || rowi >= dgvBanAn.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
+            {
+                return;
+            }
+            else
+            {
+                #region Mở các nút thêm xóa sửa
+                btnThemBanAn.Enabled = true;
+                btnXoaBanAn.Enabled = true;
+                btnSuaBanAn.Enabled = true;
+                #endregion
+                int id = int.Parse(dgvBanAn.Rows[e.RowIndex].Cells[0].Value.ToString());
+                BanAn ba = BABLL.LayBanAnTheoID(id);
+                txtIdBanAn.Text = ba.id.ToString();
+                txtTenBanAn.Text = ba.ten;
+                //cbbDanhMuc.SelectedValue = iddanhmuc;
+            }
+        }
+        private void txtTenBanAn_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtTenBanAn.Text != "")
+            {
+                btnThemBanAn.Enabled = true;
+            }
+            else
+            {
+                btnThemBanAn.Enabled = false;
+            }
+        }
 
         #endregion
+        private void btnSuaBanAn_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtTenBanAn.Text))
+            {
+                MessageBox.Show("Bạn thiếu tên bàn ăn");
+                return;
+            }
+            int idbanan = int.Parse(txtIdBanAn.Text);
+            BABLL.Sua(idbanan, null, txtTenBanAn.Text);
+            LoadBanAn();
+        }
 
+        private void btnXoaBanAn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc Xóa '" + txtTenBanAn.Text + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            {
+                int idbanan = int.Parse(txtIdBanAn.Text);
+                if (HDBLL.LayHoaDonTheoIDBanAn(idbanan) == null)
+                {
+                    try
+                    {
+                        BABLL.Xoa(idbanan);
+                        txtIdBanAn.Text = "";
+                        txtTenBanAn.Text = "";
+
+                        btnThemMonAn.Enabled = false;
+                        btnXoaMonAn.Enabled = false;
+                        btnSuaMonAn.Enabled = false;
+                        LoadBanAn();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Xóa món ăn thất bại!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Đã tồn tại hóa đơn không thể xóa!");
+                }
+            }
+        }
+
+        private void btnTimMonAn_Click(object sender, EventArgs e)
+        {
+            var query = MABLL.LayTatCa().Where(c => RemoveDiacritics(c.ten.ToLower()).Contains(RemoveDiacritics(txtTimMonAn.Text.ToLower())));
+            dgvMonAn.DataSource = query.ToList();
+            if(txtTimMonAn.Text == "")
+            {
+                LoadMonAn();
+            }
+        }
+        private string RemoveDiacritics(String s)  //Xóa dấu để tìm kiếm
+        {
+            String normalizedString = s.Normalize(NormalizationForm.FormD);
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int i = 0; i < normalizedString.Length; i++)
+            {
+                Char c = normalizedString[i];
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                    stringBuilder.Append(c);
+            }
+
+            return stringBuilder.ToString();
+        }
+        #endregion
+
+       
     }
 }
