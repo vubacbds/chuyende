@@ -529,8 +529,59 @@ namespace QLQuanAnForm
 
             return stringBuilder.ToString();
         }
+
         #endregion
 
-       
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            var kq = from h in HDBLL.LayHoaDonTheoThoiGian(dtpTuNgay.Value, dtpDenNgay.Value)
+                     join b in BABLL.LayTatCa() on h.idbanan equals b.id
+                     let doanhthu = h.tongtien - h.tongtien * h.giamgia / 100
+                     select new
+                     {
+                         h.id,
+                         h.tongtien,
+                         h.ngayvao,
+                         h.ngayra,
+                         b.ten,
+                         h.giamgia,
+                         doanhthu
+                     };
+            var tongdoanhthu = kq.Select(p => p.doanhthu).Sum();
+            dgvHoaDon.DataSource = kq.ToList();
+
+            txtTongDoanhThu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongdoanhthu) + " vnđ";
+            var results = from k in kq          //Doanh thu theo bàn ăn
+                          group k by k.ten into theoban
+                          select new
+                          {
+                              tenban = theoban.Key,
+                              tongdoanhthu = theoban.Sum(x => x.tongtien - x.tongtien * x.giamgia / 100)
+                          };
+            dgvDoanhThuTheoBan.DataSource = results.ToList();
+
+            #region Định dạng Datagridview
+            dgvDoanhThuTheoBan.Columns["tenban"].HeaderText = "Tên bàn";
+            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].HeaderText = "Doanh thu";
+            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].DefaultCellStyle.Format = "N0";
+            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvHoaDon.Columns["id"].HeaderText = "Mã hóa đơn";
+            dgvHoaDon.Columns["tongtien"].HeaderText = "Tổng tiền";
+            dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Format = "N0";
+            //dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvHoaDon.Columns["ngayvao"].HeaderText = "Ngày vào";
+            dgvHoaDon.Columns["ngayra"].HeaderText = "Ngày ra";
+            dgvHoaDon.Columns["ten"].HeaderText = "Tên bàn";
+            dgvHoaDon.Columns["giamgia"].HeaderText = "% giảm giá";
+            dgvHoaDon.Columns["ngayvao"].Width = 80;
+            dgvHoaDon.Columns["ngayra"].Width = 80;
+            dgvHoaDon.Columns["giamgia"].Width = 50;
+            dgvHoaDon.Columns["ten"].Width = 50;
+            dgvHoaDon.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvHoaDon.Columns[6].Visible = false; // ẩn đi trường ID
+            #endregion
+        }
     }
 }

@@ -421,6 +421,10 @@ namespace DAL
 		
 		private int _trangthai;
 		
+		private int _giamgia;
+		
+		private int _tongtien;
+		
 		private EntitySet<HoaDonChiTiet> _HoaDonChiTiets;
 		
 		private EntityRef<BanAn> _BanAn;
@@ -439,6 +443,10 @@ namespace DAL
     partial void OnidbananChanged();
     partial void OntrangthaiChanging(int value);
     partial void OntrangthaiChanged();
+    partial void OngiamgiaChanging(int value);
+    partial void OngiamgiaChanged();
+    partial void OntongtienChanging(int value);
+    partial void OntongtienChanged();
     #endregion
 		
 		public HoaDon()
@@ -548,6 +556,46 @@ namespace DAL
 					this._trangthai = value;
 					this.SendPropertyChanged("trangthai");
 					this.OntrangthaiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_giamgia", DbType="Int NOT NULL")]
+		public int giamgia
+		{
+			get
+			{
+				return this._giamgia;
+			}
+			set
+			{
+				if ((this._giamgia != value))
+				{
+					this.OngiamgiaChanging(value);
+					this.SendPropertyChanging();
+					this._giamgia = value;
+					this.SendPropertyChanged("giamgia");
+					this.OngiamgiaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tongtien", DbType="Int NOT NULL")]
+		public int tongtien
+		{
+			get
+			{
+				return this._tongtien;
+			}
+			set
+			{
+				if ((this._tongtien != value))
+				{
+					this.OntongtienChanging(value);
+					this.SendPropertyChanging();
+					this._tongtien = value;
+					this.SendPropertyChanged("tongtien");
+					this.OntongtienChanged();
 				}
 			}
 		}

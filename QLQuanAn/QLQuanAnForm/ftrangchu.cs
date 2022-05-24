@@ -22,7 +22,7 @@ namespace QLQuanAnForm
         DanhMucBLL DMBLL = new DanhMucBLL();
         TaiKhoanBLL TKBLL = new TaiKhoanBLL();
         int IDBanAn = 0;
-        int giamgia = 0;
+        int tongtien = 0;
         public ftrangchu(string tendangnhap)
         {
             this.tendangnhap = tendangnhap;
@@ -94,9 +94,9 @@ namespace QLQuanAnForm
                              m.gia,
                              thanhtien
                          };
-                var tongtien = kq.Select(p => p.thanhtien).Sum();
-                giamgia = (int)tongtien;
-                string tt = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongtien);
+                var sumtien = kq.Select(p => p.thanhtien).Sum();
+                tongtien = (int)sumtien;
+                string tt = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", sumtien);
 
                 dgvHoaDonChiTiet.DataSource = kq.ToList();
                 lblTongTien.Text = tt + " vnđ";
@@ -245,7 +245,7 @@ namespace QLQuanAnForm
                 string tenbanan = BABLL.LayBanAnTheoID(IDBanAn).ten;
                 if (MessageBox.Show("Bạn có chắc thanh toán tiền cho '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
                 {
-                    HDBLL.Sua(IDBanAn);
+                    HDBLL.Sua(IDBanAn, int.Parse(numGiamGia.Value.ToString()), tongtien);
                     BABLL.Sua(IDBanAn, "Trống", null);
                     LoadBanAn();
                     HienThiHoaDon(IDBanAn);
@@ -272,7 +272,7 @@ namespace QLQuanAnForm
 
         private void btnGiamGia_Click(object sender, EventArgs e)
         {
-            int gg = giamgia - giamgia * int.Parse(numGiamGia.Text) / 100;
+            int gg = tongtien - tongtien * int.Parse(numGiamGia.Text) / 100;
             lblTongTien.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}" + " vnđ", gg);
         }
         #endregion

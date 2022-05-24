@@ -28,11 +28,13 @@ namespace BLL
             DB.HoaDons.InsertOnSubmit(hd);
             DB.SubmitChanges();
         }
-        public void Sua(int idbanan)
+        public void Sua(int idbanan, int giamgia, int tongtien)
         {
             HoaDon hd = DB.HoaDons.FirstOrDefault(h => h.idbanan == idbanan && h.trangthai == 0);
             hd.trangthai = 1;
             hd.ngayra = DateTime.Now;
+            hd.giamgia = giamgia;
+            hd.tongtien = tongtien;
             DB.SubmitChanges();
         }
         public void Xoa(string idhoadon)
@@ -40,6 +42,10 @@ namespace BLL
             HoaDon hd = DB.HoaDons.FirstOrDefault(h => h.id == idhoadon);
             DB.HoaDons.DeleteOnSubmit(hd);
             DB.SubmitChanges();
+        }
+        public List<HoaDon> LayHoaDonTheoThoiGian(DateTime tungay, DateTime denngay)
+        {
+            return DB.HoaDons.Where(hd => hd.ngayra >= tungay && hd.ngayra <= denngay && hd.trangthai == 1).ToList();
         }
     }
 }
