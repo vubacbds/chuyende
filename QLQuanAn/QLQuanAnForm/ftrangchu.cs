@@ -189,7 +189,7 @@ namespace QLQuanAnForm
 
                 if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) == null)            //Khi bàn ăn không có hóa đơn nào
                 {
-                    HDBLL.Them(IDBanAn, idhoadon);
+                    HDBLL.Them(IDBanAn, idhoadon, tendangnhap);
                     HDCTBLL.Them(idhoadon, idmonan, soluong);
                     BABLL.Sua(IDBanAn, "Đã đặt", null);
                     LoadBanAn();
@@ -240,6 +240,7 @@ namespace QLQuanAnForm
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(DateTime.Now.ToString("dd/MM/yyyy hh:mm"));
             if (HDBLL.LayHoaDonTheoIDBanAn(IDBanAn) != null)
             {
                 string tenbanan = BABLL.LayBanAnTheoID(IDBanAn).ten;

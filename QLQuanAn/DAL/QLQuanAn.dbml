@@ -19,12 +19,13 @@
   <Table Name="dbo.HoaDon" Member="HoaDons">
     <Type Name="HoaDon">
       <Column Name="id" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ngayvao" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="ngayra" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ngayvao" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ngayra" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="idbanan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="trangthai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="giamgia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="tongtien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="nguoitao" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonChiTiet" Member="HoaDonChiTiets" ThisKey="id" OtherKey="idhoadon" Type="HoaDonChiTiet" />
       <Association Name="BanAn_HoaDon" Member="BanAn" ThisKey="idbanan" OtherKey="id" Type="BanAn" IsForeignKey="true" />
     </Type>

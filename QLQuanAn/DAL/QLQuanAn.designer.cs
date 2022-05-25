@@ -425,6 +425,8 @@ namespace DAL
 		
 		private int _tongtien;
 		
+		private string _nguoitao;
+		
 		private EntitySet<HoaDonChiTiet> _HoaDonChiTiets;
 		
 		private EntityRef<BanAn> _BanAn;
@@ -447,6 +449,8 @@ namespace DAL
     partial void OngiamgiaChanged();
     partial void OntongtienChanging(int value);
     partial void OntongtienChanged();
+    partial void OnnguoitaoChanging(string value);
+    partial void OnnguoitaoChanged();
     #endregion
 		
 		public HoaDon()
@@ -476,7 +480,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngayvao", DbType="Date NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngayvao", DbType="DateTime NOT NULL")]
 		public System.DateTime ngayvao
 		{
 			get
@@ -496,7 +500,7 @@ namespace DAL
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngayra", DbType="Date")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ngayra", DbType="DateTime")]
 		public System.Nullable<System.DateTime> ngayra
 		{
 			get
@@ -596,6 +600,26 @@ namespace DAL
 					this._tongtien = value;
 					this.SendPropertyChanged("tongtien");
 					this.OntongtienChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nguoitao", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string nguoitao
+		{
+			get
+			{
+				return this._nguoitao;
+			}
+			set
+			{
+				if ((this._nguoitao != value))
+				{
+					this.OnnguoitaoChanging(value);
+					this.SendPropertyChanging();
+					this._nguoitao = value;
+					this.SendPropertyChanged("nguoitao");
+					this.OnnguoitaoChanged();
 				}
 			}
 		}

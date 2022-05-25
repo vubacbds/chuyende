@@ -33,8 +33,8 @@ namespace QLQuanAnForm
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tcAdmin = new System.Windows.Forms.TabControl();
             this.tpDanhMuc = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -111,10 +111,13 @@ namespace QLQuanAnForm
             this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvHoaDon = new System.Windows.Forms.DataGridView();
-            this.dgvDoanhThuTheoBan = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.txtTongDoanhThu = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgvDoanhThuTheoBan = new System.Windows.Forms.DataGridView();
+            this.dgvHoaDon = new System.Windows.Forms.DataGridView();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDanhMuc.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -152,8 +155,8 @@ namespace QLQuanAnForm
             this.tpDoanhThu.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuTheoBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // tcAdmin
@@ -889,12 +892,12 @@ namespace QLQuanAnForm
             this.panel2.Controls.Add(this.dtpTuNgay);
             this.panel2.Location = new System.Drawing.Point(6, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(516, 39);
+            this.panel2.Size = new System.Drawing.Size(516, 30);
             this.panel2.TabIndex = 1;
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Location = new System.Drawing.Point(438, 13);
+            this.btnThongKe.Location = new System.Drawing.Point(439, 0);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(75, 23);
             this.btnThongKe.TabIndex = 2;
@@ -904,44 +907,48 @@ namespace QLQuanAnForm
             // 
             // dtpDenNgay
             // 
-            this.dtpDenNgay.Location = new System.Drawing.Point(220, 16);
+            this.dtpDenNgay.Location = new System.Drawing.Point(221, 3);
             this.dtpDenNgay.Name = "dtpDenNgay";
             this.dtpDenNgay.Size = new System.Drawing.Size(200, 20);
             this.dtpDenNgay.TabIndex = 1;
             // 
             // dtpTuNgay
             // 
-            this.dtpTuNgay.Location = new System.Drawing.Point(3, 16);
+            this.dtpTuNgay.Checked = false;
+            this.dtpTuNgay.Location = new System.Drawing.Point(4, 3);
             this.dtpTuNgay.Name = "dtpTuNgay";
             this.dtpTuNgay.Size = new System.Drawing.Size(200, 20);
             this.dtpTuNgay.TabIndex = 0;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnXuatExcel);
             this.panel1.Controls.Add(this.txtTongDoanhThu);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.dgvDoanhThuTheoBan);
             this.panel1.Controls.Add(this.dgvHoaDon);
-            this.panel1.Location = new System.Drawing.Point(6, 48);
+            this.panel1.Location = new System.Drawing.Point(6, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(516, 266);
+            this.panel1.Size = new System.Drawing.Size(516, 282);
             this.panel1.TabIndex = 0;
             // 
-            // dgvHoaDon
+            // txtTongDoanhThu
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDon.Location = new System.Drawing.Point(0, 3);
-            this.dgvHoaDon.Name = "dgvHoaDon";
-            this.dgvHoaDon.Size = new System.Drawing.Size(519, 159);
-            this.dgvHoaDon.TabIndex = 0;
+            this.txtTongDoanhThu.Location = new System.Drawing.Point(61, 234);
+            this.txtTongDoanhThu.Name = "txtTongDoanhThu";
+            this.txtTongDoanhThu.ReadOnly = true;
+            this.txtTongDoanhThu.Size = new System.Drawing.Size(142, 20);
+            this.txtTongDoanhThu.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(58, 209);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Doanh thu sau giảm giá:";
             // 
             // dgvDoanhThuTheoBan
             // 
@@ -954,34 +961,52 @@ namespace QLQuanAnForm
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvDoanhThuTheoBan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDoanhThuTheoBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDoanhThuTheoBan.Location = new System.Drawing.Point(254, 168);
+            this.dgvDoanhThuTheoBan.Location = new System.Drawing.Point(254, 176);
             this.dgvDoanhThuTheoBan.Name = "dgvDoanhThuTheoBan";
-            this.dgvDoanhThuTheoBan.Size = new System.Drawing.Size(259, 95);
+            this.dgvDoanhThuTheoBan.Size = new System.Drawing.Size(259, 103);
             this.dgvDoanhThuTheoBan.TabIndex = 1;
             // 
-            // label5
+            // dgvHoaDon
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 181);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Doanh thu sau giảm giá:";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
+            this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.Size = new System.Drawing.Size(519, 170);
+            this.dgvHoaDon.TabIndex = 0;
             // 
-            // txtTongDoanhThu
+            // button1
             // 
-            this.txtTongDoanhThu.Location = new System.Drawing.Point(15, 215);
-            this.txtTongDoanhThu.Name = "txtTongDoanhThu";
-            this.txtTongDoanhThu.ReadOnly = true;
-            this.txtTongDoanhThu.Size = new System.Drawing.Size(142, 20);
-            this.txtTongDoanhThu.TabIndex = 3;
+            this.button1.Location = new System.Drawing.Point(0, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Location = new System.Drawing.Point(0, 176);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Text = "Xuất excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
             // 
             // fadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 360);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tcAdmin);
             this.Name = "fadmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1036,8 +1061,8 @@ namespace QLQuanAnForm
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuTheoBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1124,5 +1149,8 @@ namespace QLQuanAnForm
         private System.Windows.Forms.DataGridView dgvDoanhThuTheoBan;
         private System.Windows.Forms.TextBox txtTongDoanhThu;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnXuatExcel;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button button1;
     }
 }

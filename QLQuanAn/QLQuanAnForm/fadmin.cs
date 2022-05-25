@@ -418,8 +418,32 @@ namespace QLQuanAnForm
                 MessageBox.Show("Sửa món ăn thất bại!");
             }
         }
+        private void btnTimMonAn_Click(object sender, EventArgs e)
+        {
+            var query = MABLL.LayTatCa().Where(c => RemoveDiacritics(c.ten.ToLower()).Contains(RemoveDiacritics(txtTimMonAn.Text.ToLower())));
+            dgvMonAn.DataSource = query.ToList();
+            if (txtTimMonAn.Text == "")
+            {
+                LoadMonAn();
+            }
+        }
+        private string RemoveDiacritics(String s)  //Xóa dấu để tìm kiếm
+        {
+            String normalizedString = s.Normalize(NormalizationForm.FormD);
+            StringBuilder stringBuilder = new StringBuilder();
+
+            for (int i = 0; i < normalizedString.Length; i++)
+            {
+                Char c = normalizedString[i];
+                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
+                    stringBuilder.Append(c);
+            }
+
+            return stringBuilder.ToString();
+        }
         #endregion
-        #region Events Bàn án
+
+        #region Events Bàn ăn
         private void btnThemBanAn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtTenBanAn.Text))
@@ -462,8 +486,6 @@ namespace QLQuanAnForm
                 btnThemBanAn.Enabled = false;
             }
         }
-
-        #endregion
         private void btnSuaBanAn_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtTenBanAn.Text))
@@ -505,35 +527,12 @@ namespace QLQuanAnForm
                 }
             }
         }
-
-        private void btnTimMonAn_Click(object sender, EventArgs e)
-        {
-            var query = MABLL.LayTatCa().Where(c => RemoveDiacritics(c.ten.ToLower()).Contains(RemoveDiacritics(txtTimMonAn.Text.ToLower())));
-            dgvMonAn.DataSource = query.ToList();
-            if(txtTimMonAn.Text == "")
-            {
-                LoadMonAn();
-            }
-        }
-        private string RemoveDiacritics(String s)  //Xóa dấu để tìm kiếm
-        {
-            String normalizedString = s.Normalize(NormalizationForm.FormD);
-            StringBuilder stringBuilder = new StringBuilder();
-
-            for (int i = 0; i < normalizedString.Length; i++)
-            {
-                Char c = normalizedString[i];
-                if (CharUnicodeInfo.GetUnicodeCategory(c) != UnicodeCategory.NonSpacingMark)
-                    stringBuilder.Append(c);
-            }
-
-            return stringBuilder.ToString();
-        }
-
         #endregion
 
+        #region Events doanh thu
         private void btnThongKe_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show(DateTime.Now.ToString("hh:mm:ss"));
             var kq = from h in HDBLL.LayHoaDonTheoThoiGian(dtpTuNgay.Value, dtpDenNgay.Value)
                      join b in BABLL.LayTatCa() on h.idbanan equals b.id
                      let doanhthu = h.tongtien - h.tongtien * h.giamgia / 100
@@ -545,6 +544,8 @@ namespace QLQuanAnForm
                          h.ngayra,
                          b.ten,
                          h.giamgia,
+                         h.nguoitao,
+                         idban = b.id,
                          doanhthu
                      };
             var tongdoanhthu = kq.Select(p => p.doanhthu).Sum();
@@ -552,12 +553,14 @@ namespace QLQuanAnForm
 
             txtTongDoanhThu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongdoanhthu) + " vnđ";
             var results = from k in kq          //Doanh thu theo bàn ăn
-                          group k by k.ten into theoban
+                          group k by k.idban into theoban
+                          orderby theoban.Key ascending
                           select new
                           {
-                              tenban = theoban.Key,
+                              tenban = theoban.Select(g => g.ten).FirstOrDefault(),
                               tongdoanhthu = theoban.Sum(x => x.tongtien - x.tongtien * x.giamgia / 100)
                           };
+
             dgvDoanhThuTheoBan.DataSource = results.ToList();
 
             #region Định dạng Datagridview
@@ -575,13 +578,74 @@ namespace QLQuanAnForm
             dgvHoaDon.Columns["ngayra"].HeaderText = "Ngày ra";
             dgvHoaDon.Columns["ten"].HeaderText = "Tên bàn";
             dgvHoaDon.Columns["giamgia"].HeaderText = "% giảm giá";
-            dgvHoaDon.Columns["ngayvao"].Width = 80;
-            dgvHoaDon.Columns["ngayra"].Width = 80;
-            dgvHoaDon.Columns["giamgia"].Width = 50;
-            dgvHoaDon.Columns["ten"].Width = 50;
-            dgvHoaDon.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvHoaDon.Columns[6].Visible = false; // ẩn đi trường ID
+            dgvHoaDon.Columns["nguoitao"].HeaderText = "Người tạo";
+            //dgvHoaDon.Columns["ngayvao"].Width = 100;
+            //dgvHoaDon.Columns["ngayra"].Width = 100;
+            //dgvHoaDon.Columns["giamgia"].Width = 50;
+            //dgvHoaDon.Columns["ten"].Width = 50;
+            //dgvHoaDon.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvHoaDon.Columns[7].Visible = false;
+            dgvHoaDon.Columns[8].Visible = false;
             #endregion
         }
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                //gọi hàm ToExcel() với tham số là dtgDSHS và filename từ SaveFileDialog
+                ToExcel(dgvHoaDon, saveFileDialog1.FileName);
+            }
+        }
+        private void ToExcel(DataGridView dataGridView1, string fileName)
+        {
+            //khai báo thư viện hỗ trợ Microsoft.Office.Interop.Excel
+            Microsoft.Office.Interop.Excel.Application excel;
+            Microsoft.Office.Interop.Excel.Workbook workbook;
+            Microsoft.Office.Interop.Excel.Worksheet worksheet;
+            try
+            {
+                //Tạo đối tượng COM.
+                excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Visible = false;
+                excel.DisplayAlerts = false;
+                //tạo mới một Workbooks bằng phương thức add()
+                workbook = excel.Workbooks.Add(Type.Missing);
+                worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
+                //đặt tên cho sheet
+                worksheet.Name = "Quản lý học sinh";
+
+                // export header trong DataGridView
+                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                {
+                    worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText;
+                }
+                // export nội dung trong DataGridView
+                for (int i = 0; i < dataGridView1.RowCount; i++)
+                {
+                    for (int j = 0; j < dataGridView1.ColumnCount; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
+                // sử dụng phương thức SaveAs() để lưu workbook với filename
+                workbook.SaveAs(fileName);
+                //đóng workbook
+                workbook.Close();
+                excel.Quit();
+                MessageBox.Show("Xuất dữ liệu ra Excel thành công!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                workbook = null;
+                worksheet = null;
+            }
+        }
+        #endregion
+
+        #endregion
     }
 }

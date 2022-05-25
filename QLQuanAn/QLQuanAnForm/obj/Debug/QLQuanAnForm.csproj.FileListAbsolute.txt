@@ -36,3 +36,4 @@ D:\chuyende\QLQuanAn\QLQuanAnForm\bin\Debug\BLL.pdb
 D:\chuyende\QLQuanAn\QLQuanAnForm\bin\Debug\DAL.pdb
 D:\chuyende\QLQuanAn\QLQuanAnForm\bin\Debug\DAL.dll.config
 D:\chuyende\QLQuanAn\QLQuanAnForm\obj\Debug\QLQuanAnForm.csproj.CopyComplete
+D:\chuyende\QLQuanAn\QLQuanAnForm\obj\Debug\QLQuanAnForm.csproj.ResolveComReference.cache

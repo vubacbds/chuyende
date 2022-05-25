@@ -18,12 +18,13 @@ namespace BLL
         {
             return DB.HoaDons.Where(hd => hd.idbanan==idbanan && hd.trangthai==0).FirstOrDefault();
         }
-        public void Them(int IDBanAn, string idhoadon)
+        public void Them(int IDBanAn, string idhoadon, string nguoitao)
         {
             HoaDon hd = new HoaDon();
             hd.id = idhoadon;
             hd.idbanan = IDBanAn;
             hd.ngayvao = DateTime.Now;
+            hd.nguoitao = nguoitao;
 
             DB.HoaDons.InsertOnSubmit(hd);
             DB.SubmitChanges();
