@@ -29,7 +29,8 @@ namespace QLQuanAnForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinCáNhânToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -38,11 +39,11 @@ namespace QLQuanAnForm
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHoaDonChiTiet = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnIn = new System.Windows.Forms.Button();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numGiamGia = new System.Windows.Forms.NumericUpDown();
             this.btnGiamGia = new System.Windows.Forms.Button();
-            this.btnThanhToan = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnTenBan = new System.Windows.Forms.Button();
             this.numSoLuong = new System.Windows.Forms.NumericUpDown();
@@ -51,6 +52,11 @@ namespace QLQuanAnForm
             this.cbbDanhMuc = new System.Windows.Forms.ComboBox();
             this.flpBanAn = new System.Windows.Forms.FlowLayoutPanel();
             this.lblThongBao = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.induanhabepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inPhiếuTínhTiềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonChiTiet)).BeginInit();
@@ -58,6 +64,7 @@ namespace QLQuanAnForm
             ((System.ComponentModel.ISupportInitialize)(this.numGiamGia)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -105,6 +112,8 @@ namespace QLQuanAnForm
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.dgvHoaDonChiTiet);
             this.panel2.Location = new System.Drawing.Point(450, 80);
             this.panel2.Name = "panel2";
@@ -113,41 +122,57 @@ namespace QLQuanAnForm
             // 
             // dgvHoaDonChiTiet
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDonChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvHoaDonChiTiet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDonChiTiet.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvHoaDonChiTiet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHoaDonChiTiet.Location = new System.Drawing.Point(4, 4);
             this.dgvHoaDonChiTiet.Name = "dgvHoaDonChiTiet";
             this.dgvHoaDonChiTiet.Size = new System.Drawing.Size(389, 202);
             this.dgvHoaDonChiTiet.TabIndex = 0;
+            this.dgvHoaDonChiTiet.DataSourceChanged += new System.EventHandler(this.dgvHoaDonChiTiet_DataSourceChanged);
             this.dgvHoaDonChiTiet.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDonChiTiet_CellDoubleClick);
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel3.Controls.Add(this.btnIn);
             this.panel3.Controls.Add(this.lblTongTien);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.numGiamGia);
             this.panel3.Controls.Add(this.btnGiamGia);
-            this.panel3.Controls.Add(this.btnThanhToan);
+            this.panel3.Enabled = false;
             this.panel3.Location = new System.Drawing.Point(450, 287);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(393, 51);
             this.panel3.TabIndex = 4;
             // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(308, 3);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(82, 42);
+            this.btnIn.TabIndex = 11;
+            this.btnIn.Text = "In";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnIn_MouseDown);
+            // 
             // lblTongTien
             // 
+            this.lblTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTongTien.AutoSize = true;
             this.lblTongTien.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.lblTongTien.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTongTien.ForeColor = System.Drawing.Color.Red;
-            this.lblTongTien.Location = new System.Drawing.Point(197, 22);
+            this.lblTongTien.Location = new System.Drawing.Point(105, 22);
             this.lblTongTien.Name = "lblTongTien";
             this.lblTongTien.Padding = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.lblTongTien.Size = new System.Drawing.Size(108, 23);
@@ -156,6 +181,7 @@ namespace QLQuanAnForm
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(5, 6);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -166,6 +192,7 @@ namespace QLQuanAnForm
             // 
             // numGiamGia
             // 
+            this.numGiamGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.numGiamGia.Location = new System.Drawing.Point(22, 6);
             this.numGiamGia.Name = "numGiamGia";
             this.numGiamGia.Size = new System.Drawing.Size(65, 20);
@@ -174,6 +201,7 @@ namespace QLQuanAnForm
             // 
             // btnGiamGia
             // 
+            this.btnGiamGia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGiamGia.Location = new System.Drawing.Point(5, 24);
             this.btnGiamGia.Name = "btnGiamGia";
             this.btnGiamGia.Size = new System.Drawing.Size(82, 21);
@@ -182,23 +210,15 @@ namespace QLQuanAnForm
             this.btnGiamGia.UseVisualStyleBackColor = true;
             this.btnGiamGia.Click += new System.EventHandler(this.btnGiamGia_Click);
             // 
-            // btnThanhToan
-            // 
-            this.btnThanhToan.Location = new System.Drawing.Point(308, 3);
-            this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(82, 44);
-            this.btnThanhToan.TabIndex = 3;
-            this.btnThanhToan.Text = "Thanh toán";
-            this.btnThanhToan.UseVisualStyleBackColor = true;
-            this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
-            // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.btnTenBan);
             this.panel4.Controls.Add(this.numSoLuong);
             this.panel4.Controls.Add(this.btnThem);
             this.panel4.Controls.Add(this.cbbMonAn);
             this.panel4.Controls.Add(this.cbbDanhMuc);
+            this.panel4.Enabled = false;
             this.panel4.Location = new System.Drawing.Point(450, 27);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(393, 51);
@@ -206,6 +226,7 @@ namespace QLQuanAnForm
             // 
             // btnTenBan
             // 
+            this.btnTenBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTenBan.BackColor = System.Drawing.Color.MediumAquamarine;
             this.btnTenBan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTenBan.Location = new System.Drawing.Point(4, 3);
@@ -218,6 +239,7 @@ namespace QLQuanAnForm
             // 
             // numSoLuong
             // 
+            this.numSoLuong.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numSoLuong.Location = new System.Drawing.Point(244, 14);
             this.numSoLuong.Minimum = new decimal(new int[] {
             1,
@@ -235,6 +257,7 @@ namespace QLQuanAnForm
             // 
             // btnThem
             // 
+            this.btnThem.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnThem.Location = new System.Drawing.Point(308, 0);
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(82, 44);
@@ -245,6 +268,7 @@ namespace QLQuanAnForm
             // 
             // cbbMonAn
             // 
+            this.cbbMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbMonAn.FormattingEnabled = true;
             this.cbbMonAn.Location = new System.Drawing.Point(67, 25);
             this.cbbMonAn.Name = "cbbMonAn";
@@ -253,6 +277,7 @@ namespace QLQuanAnForm
             // 
             // cbbDanhMuc
             // 
+            this.cbbDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbbDanhMuc.FormattingEnabled = true;
             this.cbbDanhMuc.Location = new System.Drawing.Point(67, 3);
             this.cbbDanhMuc.Name = "cbbDanhMuc";
@@ -262,6 +287,9 @@ namespace QLQuanAnForm
             // 
             // flpBanAn
             // 
+            this.flpBanAn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flpBanAn.AutoScroll = true;
             this.flpBanAn.Location = new System.Drawing.Point(12, 27);
             this.flpBanAn.Name = "flpBanAn";
@@ -277,6 +305,38 @@ namespace QLQuanAnForm
             this.lblThongBao.Name = "lblThongBao";
             this.lblThongBao.Size = new System.Drawing.Size(0, 13);
             this.lblThongBao.TabIndex = 7;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.induanhabepToolStripMenuItem,
+            this.inPhiếuTínhTiềnToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 48);
+            // 
+            // induanhabepToolStripMenuItem
+            // 
+            this.induanhabepToolStripMenuItem.Name = "induanhabepToolStripMenuItem";
+            this.induanhabepToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.induanhabepToolStripMenuItem.Text = "&In đưa nhà bếp";
+            this.induanhabepToolStripMenuItem.Click += new System.EventHandler(this.induanhabepToolStripMenuItem_Click);
+            // 
+            // inPhiếuTínhTiềnToolStripMenuItem
+            // 
+            this.inPhiếuTínhTiềnToolStripMenuItem.Name = "inPhiếuTínhTiềnToolStripMenuItem";
+            this.inPhiếuTínhTiềnToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.inPhiếuTínhTiềnToolStripMenuItem.Text = "&In phiếu tính tiền";
+            this.inPhiếuTínhTiềnToolStripMenuItem.Click += new System.EventHandler(this.inPhiếuTínhTiềnToolStripMenuItem_Click);
+            // 
+            // printDocument1
+            // 
+            this.printDocument1.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument1_EndPrint_1);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printDocument2_EndPrint);
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
             // ftrangchu
             // 
@@ -302,6 +362,7 @@ namespace QLQuanAnForm
             ((System.ComponentModel.ISupportInitialize)(this.numGiamGia)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numSoLuong)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,7 +381,6 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Button btnThem;
         private System.Windows.Forms.ComboBox cbbMonAn;
         private System.Windows.Forms.ComboBox cbbDanhMuc;
-        private System.Windows.Forms.Button btnThanhToan;
         private System.Windows.Forms.FlowLayoutPanel flpBanAn;
         private System.Windows.Forms.NumericUpDown numGiamGia;
         private System.Windows.Forms.Button btnGiamGia;
@@ -329,5 +389,11 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Label lblThongBao;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblTongTien;
+        private System.Windows.Forms.Button btnIn;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem induanhabepToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.ToolStripMenuItem inPhiếuTínhTiềnToolStripMenuItem;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }

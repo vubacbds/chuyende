@@ -111,13 +111,12 @@ namespace QLQuanAnForm
             this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.txtTongDoanhThu = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvDoanhThuTheoBan = new System.Windows.Forms.DataGridView();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnXuatExcel = new System.Windows.Forms.Button();
             this.tcAdmin.SuspendLayout();
             this.tpDanhMuc.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -161,6 +160,9 @@ namespace QLQuanAnForm
             // 
             // tcAdmin
             // 
+            this.tcAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tcAdmin.Controls.Add(this.tpDanhMuc);
             this.tcAdmin.Controls.Add(this.tpMonAn);
             this.tcAdmin.Controls.Add(this.tpBanAn);
@@ -187,6 +189,7 @@ namespace QLQuanAnForm
             // 
             // panel12
             // 
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.Controls.Add(this.panel15);
             this.panel12.Controls.Add(this.panel16);
             this.panel12.Location = new System.Drawing.Point(319, 50);
@@ -196,6 +199,7 @@ namespace QLQuanAnForm
             // 
             // panel15
             // 
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel15.Controls.Add(this.txtTenDanhMuc);
             this.panel15.Controls.Add(this.label7);
             this.panel15.Location = new System.Drawing.Point(3, 50);
@@ -205,6 +209,7 @@ namespace QLQuanAnForm
             // 
             // txtTenDanhMuc
             // 
+            this.txtTenDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenDanhMuc.Location = new System.Drawing.Point(36, 10);
             this.txtTenDanhMuc.Name = "txtTenDanhMuc";
             this.txtTenDanhMuc.Size = new System.Drawing.Size(159, 20);
@@ -213,6 +218,7 @@ namespace QLQuanAnForm
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 12);
@@ -223,6 +229,7 @@ namespace QLQuanAnForm
             // 
             // panel16
             // 
+            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel16.Controls.Add(this.txtIdDanhMuc);
             this.panel16.Controls.Add(this.label8);
             this.panel16.Location = new System.Drawing.Point(3, 3);
@@ -232,6 +239,7 @@ namespace QLQuanAnForm
             // 
             // txtIdDanhMuc
             // 
+            this.txtIdDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIdDanhMuc.Location = new System.Drawing.Point(36, 10);
             this.txtIdDanhMuc.Name = "txtIdDanhMuc";
             this.txtIdDanhMuc.ReadOnly = true;
@@ -240,6 +248,7 @@ namespace QLQuanAnForm
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 12);
@@ -250,6 +259,8 @@ namespace QLQuanAnForm
             // 
             // panel17
             // 
+            this.panel17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel17.Controls.Add(this.btnSuaDanhMuc);
             this.panel17.Controls.Add(this.btnXoaDanhMuc);
             this.panel17.Controls.Add(this.btnThemDanhMuc);
@@ -293,6 +304,9 @@ namespace QLQuanAnForm
             // 
             // panel18
             // 
+            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel18.Controls.Add(this.dgvDanhMuc);
             this.panel18.Location = new System.Drawing.Point(4, 50);
             this.panel18.Name = "panel18";
@@ -301,6 +315,9 @@ namespace QLQuanAnForm
             // 
             // dgvDanhMuc
             // 
+            this.dgvDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -312,6 +329,7 @@ namespace QLQuanAnForm
             this.dgvDanhMuc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDanhMuc.Location = new System.Drawing.Point(-3, 4);
             this.dgvDanhMuc.Name = "dgvDanhMuc";
+            this.dgvDanhMuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDanhMuc.Size = new System.Drawing.Size(289, 257);
             this.dgvDanhMuc.TabIndex = 0;
             this.dgvDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellClick);
@@ -932,6 +950,16 @@ namespace QLQuanAnForm
             this.panel1.Size = new System.Drawing.Size(516, 282);
             this.panel1.TabIndex = 0;
             // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Location = new System.Drawing.Point(0, 176);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatExcel.TabIndex = 4;
+            this.btnXuatExcel.Text = "Xuất excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
             // txtTongDoanhThu
             // 
             this.txtTongDoanhThu.Location = new System.Drawing.Point(61, 234);
@@ -982,31 +1010,11 @@ namespace QLQuanAnForm
             this.dgvHoaDon.Size = new System.Drawing.Size(519, 170);
             this.dgvHoaDon.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnXuatExcel
-            // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(0, 176);
-            this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnXuatExcel.TabIndex = 4;
-            this.btnXuatExcel.Text = "Xuất excel";
-            this.btnXuatExcel.UseVisualStyleBackColor = true;
-            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
-            // 
             // fadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 360);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.tcAdmin);
             this.Name = "fadmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -1151,6 +1159,5 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button button1;
     }
 }

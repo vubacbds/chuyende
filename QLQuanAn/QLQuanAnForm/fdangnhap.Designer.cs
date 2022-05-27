@@ -30,6 +30,7 @@ namespace QLQuanAnForm
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkGhiNhoMatKhau = new System.Windows.Forms.CheckBox();
             this.btnThoat = new System.Windows.Forms.Button();
             this.btnDanhNhap = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -38,7 +39,6 @@ namespace QLQuanAnForm
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtTenDangNhap = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.chkGhiNhoMatKhau = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -55,6 +55,16 @@ namespace QLQuanAnForm
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(442, 180);
             this.panel1.TabIndex = 0;
+            // 
+            // chkGhiNhoMatKhau
+            // 
+            this.chkGhiNhoMatKhau.AutoSize = true;
+            this.chkGhiNhoMatKhau.Location = new System.Drawing.Point(165, 113);
+            this.chkGhiNhoMatKhau.Name = "chkGhiNhoMatKhau";
+            this.chkGhiNhoMatKhau.Size = new System.Drawing.Size(110, 17);
+            this.chkGhiNhoMatKhau.TabIndex = 4;
+            this.chkGhiNhoMatKhau.Text = "Ghi nhớ mật khẩu";
+            this.chkGhiNhoMatKhau.UseVisualStyleBackColor = true;
             // 
             // btnThoat
             // 
@@ -129,16 +139,6 @@ namespace QLQuanAnForm
             this.label1.Size = new System.Drawing.Size(134, 19);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập: ";
-            // 
-            // chkGhiNhoMatKhau
-            // 
-            this.chkGhiNhoMatKhau.AutoSize = true;
-            this.chkGhiNhoMatKhau.Location = new System.Drawing.Point(165, 113);
-            this.chkGhiNhoMatKhau.Name = "chkGhiNhoMatKhau";
-            this.chkGhiNhoMatKhau.Size = new System.Drawing.Size(110, 17);
-            this.chkGhiNhoMatKhau.TabIndex = 4;
-            this.chkGhiNhoMatKhau.Text = "Ghi nhớ mật khẩu";
-            this.chkGhiNhoMatKhau.UseVisualStyleBackColor = true;
             // 
             // fdangnhap
             // 
