@@ -12,7 +12,7 @@ namespace BLL
 
         public List<BanAn> LayTatCa()
         {
-            return DB.BanAns.ToList();
+            return DB.BanAns.Where(b => b.trangthai == "Trống" || b.trangthai == "Đã đặt").ToList();
         }
         public void Sua(int idbandan, string trangthai, string tenbanan)
         {
@@ -44,6 +44,14 @@ namespace BLL
             BanAn ba = DB.BanAns.Where(b => b.id == id).FirstOrDefault();
             DB.BanAns.DeleteOnSubmit(ba);
             DB.SubmitChanges();
+        }
+        public List<BanAn> LayBanAnDaAnDi()
+        {
+            return DB.BanAns.Where(b => b.trangthai == "Ẩn").ToList();
+        }
+        public List<BanAn> LayTatCaHD() //Lấy tất cả cho hóa đơn thống kê nên lấy cả cái ẩn luôn
+        {
+            return DB.BanAns.ToList();
         }
     }
 }

@@ -18,6 +18,10 @@ namespace BLL
         {
             return DB.HoaDons.Where(hd => hd.idbanan==idbanan && hd.trangthai==0).FirstOrDefault();
         }
+        public HoaDon KiemTraCoXoaDuocBanAnKhong(int idbanan)
+        {
+            return DB.HoaDons.Where(hd => hd.idbanan == idbanan).FirstOrDefault();
+        }
         public void Them(int IDBanAn, string idhoadon, string nguoitao)
         {
             HoaDon hd = new HoaDon();

@@ -23,7 +23,10 @@ namespace BLL
                 return null;
             }
         }
-
+        public List<HoaDonChiTiet> LayHoaDonChiTietTheoMaHoaDon(string mahoadon)
+        {
+            return DB.HoaDonChiTiets.Where(hds => hds.idhoadon == mahoadon).ToList();
+        }
         public void Them(string idhoadon, int idmonan, int soluong)
         {
             HoaDonChiTiet hdct = new HoaDonChiTiet();

@@ -28,7 +28,15 @@ namespace QLQuanAnForm
             LoadMonAn();
             LoadTaiKhoan();
             LoadBanAn();
+            LoadHoaDon();
+            AnHienMonAn = false;
+            AnHienDanhMuc = false;
+            AnHienBanAn = false;
         }
+        private bool AnHienMonAn;
+        private bool AnHienDanhMuc;
+        private bool AnHienBanAn;
+
         #region Methods
         void LoadTaiKhoan()
         {
@@ -85,6 +93,61 @@ namespace QLQuanAnForm
             dgvBanAn.Columns["ten"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvBanAn.Columns["trangthai"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dgvBanAn.Columns[0].Visible = false;
+            #endregion
+        }
+        void LoadHoaDon()
+        {
+            var kq = from h in HDBLL.LayTatCa()
+                     join b in BABLL.LayTatCaHD() on h.idbanan equals b.id
+                     //orderby m.ten ascending
+                     select new
+                     {
+                         h.id,
+                         h.ngayvao,
+                         h.ngayra,
+                         b.ten,
+                         h.giamgia,
+                         h.tongtien,
+                         h.nguoitao,
+                         h.trangthai
+                     };
+            dgvHoaDon.DataSource = kq.ToList();
+            #region Định dạng Datagridview
+            dgvHoaDon.Columns["id"].HeaderText = "Mã hóa đơn";
+            dgvHoaDon.Columns["ngayvao"].HeaderText = "Ngày vào";
+            dgvHoaDon.Columns["ngayra"].HeaderText = "Ngày ra";
+            dgvHoaDon.Columns["ten"].HeaderText = "Tên bàn";
+            dgvHoaDon.Columns["giamgia"].HeaderText = "Giảm giá";
+            dgvHoaDon.Columns["tongtien"].HeaderText = "Tổng tiền";
+            dgvHoaDon.Columns["nguoitao"].HeaderText = "Người tạo";
+            dgvHoaDon.Columns["trangthai"].HeaderText = "Trạng thái";
+            //dgvHoaDon.Columns["trangthai"].Width = 80;
+            //dgvHoaDon.Columns["ten"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dgvHoaDon.Columns[0].Visible = false;
+            dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Format = "N0";
+            dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            #endregion
+        }
+        void LoadChiTietHoaDon(string mahoadon)
+        {
+            var kq = from h in HDCTBLL.LayHoaDonChiTietTheoMaHoaDon(mahoadon)
+                     join m in MABLL.LayTatCaHD() on h.idmonan equals m.id
+                     select new
+                     {
+                         m.ten,
+                         h.soluong,
+                         m.gia
+                     };
+            dgvChiTietHoaDon.DataSource = kq.ToList();
+            #region Định dạng Datagridview
+            dgvChiTietHoaDon.Columns["ten"].HeaderText = "Tên món";
+            dgvChiTietHoaDon.Columns["ten"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvChiTietHoaDon.Columns["soluong"].HeaderText = "SL";
+            dgvChiTietHoaDon.Columns["soluong"].Width = 50;
+            dgvChiTietHoaDon.Columns["gia"].HeaderText = "Đơn giá";
+            dgvChiTietHoaDon.Columns["gia"].Width = 50;
+            dgvChiTietHoaDon.Columns["gia"].DefaultCellStyle.Format = "N0";
+            dgvChiTietHoaDon.Columns["gia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             #endregion
         }
         #endregion
@@ -280,9 +343,12 @@ namespace QLQuanAnForm
                 }
                 else    //Trường hợp danh mục có món ăn thì sửa trạng thái
                 {
-                    DMBLL.Sua(iddanhmuc, null, 0);
-                    LoadDanhMuc();
-                    LoadMonAn();
+                    if (MessageBox.Show("Cảnh báo! Vì danh đã tồn tại món ăn, nên không thể xóa, bạn có muốn ẩn đi không ? ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        DMBLL.Sua(iddanhmuc, null, 0);
+                        LoadDanhMuc();
+                        LoadMonAn();
+                    }
                 }
             }
         }
@@ -296,6 +362,39 @@ namespace QLQuanAnForm
             catch
             {
                 MessageBox.Show("Sửa tên danh mục thất bại!");
+            }
+        }
+        private void btnAnHienDanhMuc_Click(object sender, EventArgs e)  //Ẩn hiện danh mục 
+        {
+            AnHienDanhMuc = !AnHienDanhMuc;
+            if (AnHienDanhMuc)
+            {
+                dgvDanhMuc.DataSource = DMBLL.LayDanhMucDaAnDi();
+                btnAnHienDanhMuc.Text = "DS hiện";
+            }
+            else
+            {
+                LoadDanhMuc();
+                btnAnHienDanhMuc.Text = "DS ẩn";
+            }
+        }
+
+        private void dgvDanhMuc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)  //Hiện lại danh mục
+        {
+            int rowi = e.RowIndex;
+            if (rowi < 0 || rowi >= dgvDanhMuc.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
+            {
+                return;
+            }
+            else
+            {
+                int id = int.Parse(dgvDanhMuc.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (DMBLL.LayDanhMucTheoID(id).trangthai == 0)
+                {
+                    DMBLL.Sua(id, null, 1);
+                    MessageBox.Show("Đã hiện!");
+                    dgvDanhMuc.DataSource = DMBLL.LayDanhMucDaAnDi();
+                }
             }
         }
         #endregion
@@ -394,8 +493,11 @@ namespace QLQuanAnForm
                 }
                 else
                 {
-                    MABLL.ThayDoiTrangThai(idmonan);
-                    LoadMonAn();
+                    if (MessageBox.Show("Cảnh báo! Vì món ăn đã tồn tại hóa đơn, nên không thể xóa, bạn có muốn ẩn đi không ? ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        MABLL.ThayDoiTrangThai(idmonan, 0);
+                        LoadMonAn();
+                    }
                 }
             }   
         }
@@ -404,6 +506,11 @@ namespace QLQuanAnForm
             if (string.IsNullOrEmpty(txtTenMonAn.Text))
             {
                 MessageBox.Show("Bạn thiếu tên món");
+                return;
+            }
+            if (cbbDanhMuc.SelectedValue == null)
+            {
+                MessageBox.Show("Bạn thiếu danh mục");
                 return;
             }
             try
@@ -440,6 +547,38 @@ namespace QLQuanAnForm
             }
 
             return stringBuilder.ToString();
+        }
+        private void btnAnHienMonAn_Click(object sender, EventArgs e)  //Danh sách Ẩn hiện món ăn vì khi xóa món mà đã tồn tại trong hóa đơn chỉ ẩn đi
+        {
+            AnHienMonAn = !AnHienMonAn;
+            if (AnHienMonAn)
+            {
+                dgvMonAn.DataSource = MABLL.LayMonDaAnDi();
+                btnAnHienMonAn.Text = "DS hiện";
+            }
+            else
+            {
+                LoadMonAn();
+                btnAnHienMonAn.Text = "DS ẩn";
+            }
+        }
+        private void dgvMonAn_CellDoubleClick(object sender, DataGridViewCellEventArgs e) //Nháy đúp vào món ăn thì thay đổi thành hiện
+        {
+            int rowi = e.RowIndex;
+            if (rowi < 0 || rowi >= dgvDanhMuc.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
+            {
+                return;
+            }
+            else
+            {
+                int id = int.Parse(dgvMonAn.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (MABLL.LayMonAnTheoID(id).trangthai == 0)
+                {
+                    MABLL.ThayDoiTrangThai(id, 1);
+                    MessageBox.Show("Đã hiện!");
+                    dgvMonAn.DataSource = MABLL.LayMonDaAnDi();
+                }
+            }
         }
         #endregion
 
@@ -503,7 +642,7 @@ namespace QLQuanAnForm
             if (MessageBox.Show("Bạn có chắc Xóa '" + txtTenBanAn.Text + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
             {
                 int idbanan = int.Parse(txtIdBanAn.Text);
-                if (HDBLL.LayHoaDonTheoIDBanAn(idbanan) == null)
+                if (HDBLL.KiemTraCoXoaDuocBanAnKhong(idbanan) == null)
                 {
                     try
                     {
@@ -511,19 +650,62 @@ namespace QLQuanAnForm
                         txtIdBanAn.Text = "";
                         txtTenBanAn.Text = "";
 
-                        btnThemMonAn.Enabled = false;
-                        btnXoaMonAn.Enabled = false;
-                        btnSuaMonAn.Enabled = false;
+                        btnThemBanAn.Enabled = false;
+                        btnXoaBanAn.Enabled = false;
+                        btnSuaBanAn.Enabled = false;
                         LoadBanAn();
                     }
                     catch
                     {
-                        MessageBox.Show("Xóa món ăn thất bại!");
+                        MessageBox.Show("Xóa bàn ăn thất bại!");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Đã tồn tại hóa đơn không thể xóa!");
+                    //MessageBox.Show("Đã tồn tại hóa đơn không thể xóa!");
+                    if (MessageBox.Show("Cảnh báo! Vì bàn ăn đã tồn tại hóa đơn, nên không thể xóa, bạn có muốn ẩn đi không ? ", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        BABLL.Sua(idbanan, "Ẩn", null);
+                        LoadBanAn();
+                    }
+                }
+            }
+        }
+        private void btnAnHienBanAn_Click(object sender, EventArgs e) //Ẩn hiện bàn ăn
+        {
+            AnHienBanAn = !AnHienBanAn;
+            if (AnHienBanAn)
+            {
+                dgvBanAn.DataSource = BABLL.LayBanAnDaAnDi();
+                btnAnHienBanAn.Text = "DS hiện";
+            }
+            else
+            {
+                LoadBanAn();
+                btnAnHienBanAn.Text = "DS ẩn";
+            }
+        }
+
+        private void dgvBanAn_CellDoubleClick(object sender, DataGridViewCellEventArgs e) //Hiện lại bàn ăn
+        {
+            int rowi = e.RowIndex;
+            if (rowi < 0 || rowi >= dgvBanAn.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
+            {
+                return;
+            }
+            else
+            {
+                int id = int.Parse(dgvBanAn.Rows[e.RowIndex].Cells[0].Value.ToString());
+                string tt = "Trống";
+                if (HDBLL.LayHoaDonTheoIDBanAn(id) != null)  //Nếu đã đặt thì set lại trạng thái đã đặt
+                {
+                    tt = "Đã đặt";
+                }
+                if (BABLL.LayBanAnTheoID(id).trangthai == "Ẩn")
+                {
+                    BABLL.Sua(id, tt, null);
+                    MessageBox.Show("Đã hiện!");
+                    dgvBanAn.DataSource = BABLL.LayBanAnDaAnDi();
                 }
             }
         }
@@ -549,7 +731,7 @@ namespace QLQuanAnForm
                          doanhthu
                      };
             var tongdoanhthu = kq.Select(p => p.doanhthu).Sum();
-            dgvHoaDon.DataSource = kq.ToList();
+            dgvThongKe.DataSource = kq.ToList();
 
             txtTongDoanhThu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongdoanhthu) + " vnđ";
             var results = from k in kq          //Doanh thu theo bàn ăn
@@ -570,31 +752,23 @@ namespace QLQuanAnForm
             dgvDoanhThuTheoBan.Columns["tongdoanhthu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvDoanhThuTheoBan.Columns["tongdoanhthu"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            dgvHoaDon.Columns["id"].HeaderText = "Mã hóa đơn";
-            dgvHoaDon.Columns["tongtien"].HeaderText = "Tổng tiền";
-            dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Format = "N0";
+            dgvThongKe.Columns["id"].HeaderText = "Mã hóa đơn";
+            dgvThongKe.Columns["tongtien"].HeaderText = "Tổng tiền";
+            dgvThongKe.Columns["tongtien"].DefaultCellStyle.Format = "N0";
             //dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvHoaDon.Columns["ngayvao"].HeaderText = "Ngày vào";
-            dgvHoaDon.Columns["ngayra"].HeaderText = "Ngày ra";
-            dgvHoaDon.Columns["ten"].HeaderText = "Tên bàn";
-            dgvHoaDon.Columns["giamgia"].HeaderText = "% giảm giá";
-            dgvHoaDon.Columns["nguoitao"].HeaderText = "Người tạo";
+            dgvThongKe.Columns["ngayvao"].HeaderText = "Ngày vào";
+            dgvThongKe.Columns["ngayra"].HeaderText = "Ngày ra";
+            dgvThongKe.Columns["ten"].HeaderText = "Tên bàn";
+            dgvThongKe.Columns["giamgia"].HeaderText = "% giảm giá";
+            dgvThongKe.Columns["nguoitao"].HeaderText = "Người tạo";
             //dgvHoaDon.Columns["ngayvao"].Width = 100;
             //dgvHoaDon.Columns["ngayra"].Width = 100;
             //dgvHoaDon.Columns["giamgia"].Width = 50;
             //dgvHoaDon.Columns["ten"].Width = 50;
             //dgvHoaDon.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvHoaDon.Columns[7].Visible = false;
-            dgvHoaDon.Columns[8].Visible = false;
+            dgvThongKe.Columns[7].Visible = false;
+            dgvThongKe.Columns[8].Visible = false;
             #endregion
-        }
-        private void btnXuatExcel_Click(object sender, EventArgs e)
-        {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                //gọi hàm ToExcel() với tham số là dtgDSHS và filename từ SaveFileDialog
-                ToExcel(dgvHoaDon, saveFileDialog1.FileName);
-            }
         }
         private void ToExcel(DataGridView dataGridView1, string fileName)
         {
@@ -642,6 +816,70 @@ namespace QLQuanAnForm
             {
                 workbook = null;
                 worksheet = null;
+            }
+        }
+        private void btnXuatExcel_Click(object sender, EventArgs e)
+        {
+            if (dgvThongKe.DataSource != null)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    //gọi hàm ToExcel() với tham số là dtgDSHS và filename từ SaveFileDialog
+                    ToExcel(dgvThongKe, saveFileDialog1.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có dữ liệu");
+            }
+        }
+        #endregion
+
+        #region Events Hóa đơn
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)  //Chọn vào 1 hàng hóa đơn hiển thị chi tiết
+        {
+            int rowi = e.RowIndex;
+            if (rowi < 0 || rowi >= dgvHoaDon.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
+            {
+                return;
+            }
+            else
+            {
+                string id = dgvHoaDon.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtXoaMaHoaDon.Text = id;
+                LoadChiTietHoaDon(id);
+            }
+        }
+        private void btnTimHoaDon_Click(object sender, EventArgs e)  //Tìm hóa đơn
+        {
+            var query = HDBLL.LayTatCa().Where(c => c.id.Contains(txtTimMaHoaDon.Text));
+            dgvHoaDon.DataSource = query.ToList();
+            if (txtTimMaHoaDon.Text == "")
+            {
+                LoadHoaDon();
+            }
+        }
+        private void btnXoaHoaDon_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc xóa hóa đơn '" + txtXoaMaHoaDon.Text + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            {
+                if (string.IsNullOrEmpty(txtXoaMaHoaDon.Text))
+                {
+                    MessageBox.Show("Bạn thiếu mã hóa đơn!");
+                    return;
+                }
+                try
+                {
+                    HDCTBLL.XoaTatCa(txtXoaMaHoaDon.Text);
+                    HDBLL.Xoa(txtXoaMaHoaDon.Text);
+                    LoadHoaDon();
+                    dgvChiTietHoaDon.DataSource = null;
+                    txtXoaMaHoaDon.Text = "";
+                }
+                catch
+                {
+                    MessageBox.Show("Mã hóa đơn không tồn tại");
+                }
             }
         }
         #endregion

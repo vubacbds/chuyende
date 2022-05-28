@@ -50,12 +50,19 @@ namespace BLL
             ma.gia = gia;
             DB.SubmitChanges();
         }
-        public void ThayDoiTrangThai(int id)
+        public void ThayDoiTrangThai(int id, byte trangthai)
         {
             MonAn ma = DB.MonAns.Where(m => m.id == id).FirstOrDefault();
-            ma.trangthai = 0;
+            ma.trangthai = trangthai;
             DB.SubmitChanges();
         }
-
+        public List<MonAn> LayMonDaAnDi()
+        {
+            return DB.MonAns.Where(m => m.trangthai == 0).ToList();
+        }
+        public List<MonAn> LayTatCaHD() //Lấy tất cả cho hóa đơn thống kê nên lấy cả cái ẩn luôn, ko cần điều kiện
+        {
+            return DB.MonAns.ToList();
+        }
     }
 }

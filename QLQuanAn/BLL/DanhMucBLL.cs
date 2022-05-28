@@ -46,5 +46,9 @@ namespace BLL
 
             DB.SubmitChanges();
         }
+        public List<DanhMuc> LayDanhMucDaAnDi()
+        {
+            return DB.DanhMucs.Where(d => d.trangthai == 0).ToList();
+        }
     }
 }

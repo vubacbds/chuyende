@@ -35,7 +35,9 @@ namespace QLQuanAnForm
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.tcAdmin = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tpHoaDon = new System.Windows.Forms.TabControl();
             this.tpDanhMuc = new System.Windows.Forms.TabPage();
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -45,6 +47,7 @@ namespace QLQuanAnForm
             this.txtIdDanhMuc = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.btnAnHienDanhMuc = new System.Windows.Forms.Button();
             this.btnSuaDanhMuc = new System.Windows.Forms.Button();
             this.btnXoaDanhMuc = new System.Windows.Forms.Button();
             this.btnThemDanhMuc = new System.Windows.Forms.Button();
@@ -68,6 +71,7 @@ namespace QLQuanAnForm
             this.txtIdMonAn = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btnAnHienMonAn = new System.Windows.Forms.Button();
             this.btnSuaMonAn = new System.Windows.Forms.Button();
             this.btnXoaMonAn = new System.Windows.Forms.Button();
             this.btnThemMonAn = new System.Windows.Forms.Button();
@@ -82,6 +86,7 @@ namespace QLQuanAnForm
             this.txtIdBanAn = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
+            this.btnAnHienBanAn = new System.Windows.Forms.Button();
             this.btnSuaBanAn = new System.Windows.Forms.Button();
             this.btnXoaBanAn = new System.Windows.Forms.Button();
             this.btnThemBanAn = new System.Windows.Forms.Button();
@@ -106,18 +111,28 @@ namespace QLQuanAnForm
             this.panel31 = new System.Windows.Forms.Panel();
             this.dgvTaiKhoan = new System.Windows.Forms.DataGridView();
             this.tpDoanhThu = new System.Windows.Forms.TabPage();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.btnXuatExcel = new System.Windows.Forms.Button();
+            this.txtTongDoanhThu = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dgvDoanhThuTheoBan = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnThongKe = new System.Windows.Forms.Button();
             this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnXuatExcel = new System.Windows.Forms.Button();
-            this.txtTongDoanhThu = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dgvDoanhThuTheoBan = new System.Windows.Forms.DataGridView();
+            this.dgvThongKe = new System.Windows.Forms.DataGridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panel19 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.dgvChiTietHoaDon = new System.Windows.Forms.DataGridView();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.tcAdmin.SuspendLayout();
+            this.txtTimMaHoaDon = new System.Windows.Forms.TextBox();
+            this.btnTimHoaDon = new System.Windows.Forms.Button();
+            this.txtXoaMaHoaDon = new System.Windows.Forms.TextBox();
+            this.btnXoaHoaDon = new System.Windows.Forms.Button();
+            this.tpHoaDon.SuspendLayout();
             this.tpDanhMuc.SuspendLayout();
             this.panel12.SuspendLayout();
             this.panel15.SuspendLayout();
@@ -152,27 +167,34 @@ namespace QLQuanAnForm
             this.panel31.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
             this.tpDoanhThu.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuTheoBan)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuTheoBan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.panel19.SuspendLayout();
+            this.panel14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
-            // tcAdmin
+            // tpHoaDon
             // 
-            this.tcAdmin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.tpHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tcAdmin.Controls.Add(this.tpDanhMuc);
-            this.tcAdmin.Controls.Add(this.tpMonAn);
-            this.tcAdmin.Controls.Add(this.tpBanAn);
-            this.tcAdmin.Controls.Add(this.tpTaiKhoan);
-            this.tcAdmin.Controls.Add(this.tpDoanhThu);
-            this.tcAdmin.Location = new System.Drawing.Point(12, 12);
-            this.tcAdmin.Name = "tcAdmin";
-            this.tcAdmin.SelectedIndex = 0;
-            this.tcAdmin.Size = new System.Drawing.Size(533, 343);
-            this.tcAdmin.TabIndex = 0;
+            this.tpHoaDon.Controls.Add(this.tpDanhMuc);
+            this.tpHoaDon.Controls.Add(this.tpMonAn);
+            this.tpHoaDon.Controls.Add(this.tpBanAn);
+            this.tpHoaDon.Controls.Add(this.tpTaiKhoan);
+            this.tpHoaDon.Controls.Add(this.tpDoanhThu);
+            this.tpHoaDon.Controls.Add(this.tabPage1);
+            this.tpHoaDon.Location = new System.Drawing.Point(12, 12);
+            this.tpHoaDon.Name = "tpHoaDon";
+            this.tpHoaDon.SelectedIndex = 0;
+            this.tpHoaDon.Size = new System.Drawing.Size(533, 343);
+            this.tpHoaDon.TabIndex = 0;
             // 
             // tpDanhMuc
             // 
@@ -189,7 +211,6 @@ namespace QLQuanAnForm
             // 
             // panel12
             // 
-            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.Controls.Add(this.panel15);
             this.panel12.Controls.Add(this.panel16);
             this.panel12.Location = new System.Drawing.Point(319, 50);
@@ -199,7 +220,6 @@ namespace QLQuanAnForm
             // 
             // panel15
             // 
-            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel15.Controls.Add(this.txtTenDanhMuc);
             this.panel15.Controls.Add(this.label7);
             this.panel15.Location = new System.Drawing.Point(3, 50);
@@ -209,7 +229,6 @@ namespace QLQuanAnForm
             // 
             // txtTenDanhMuc
             // 
-            this.txtTenDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTenDanhMuc.Location = new System.Drawing.Point(36, 10);
             this.txtTenDanhMuc.Name = "txtTenDanhMuc";
             this.txtTenDanhMuc.Size = new System.Drawing.Size(159, 20);
@@ -218,7 +237,6 @@ namespace QLQuanAnForm
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(3, 12);
@@ -229,7 +247,6 @@ namespace QLQuanAnForm
             // 
             // panel16
             // 
-            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panel16.Controls.Add(this.txtIdDanhMuc);
             this.panel16.Controls.Add(this.label8);
             this.panel16.Location = new System.Drawing.Point(3, 3);
@@ -239,7 +256,6 @@ namespace QLQuanAnForm
             // 
             // txtIdDanhMuc
             // 
-            this.txtIdDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtIdDanhMuc.Location = new System.Drawing.Point(36, 10);
             this.txtIdDanhMuc.Name = "txtIdDanhMuc";
             this.txtIdDanhMuc.ReadOnly = true;
@@ -248,7 +264,6 @@ namespace QLQuanAnForm
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 12);
@@ -261,6 +276,7 @@ namespace QLQuanAnForm
             // 
             this.panel17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel17.Controls.Add(this.btnAnHienDanhMuc);
             this.panel17.Controls.Add(this.btnSuaDanhMuc);
             this.panel17.Controls.Add(this.btnXoaDanhMuc);
             this.panel17.Controls.Add(this.btnThemDanhMuc);
@@ -268,6 +284,16 @@ namespace QLQuanAnForm
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(309, 41);
             this.panel17.TabIndex = 5;
+            // 
+            // btnAnHienDanhMuc
+            // 
+            this.btnAnHienDanhMuc.Location = new System.Drawing.Point(219, 0);
+            this.btnAnHienDanhMuc.Name = "btnAnHienDanhMuc";
+            this.btnAnHienDanhMuc.Size = new System.Drawing.Size(67, 38);
+            this.btnAnHienDanhMuc.TabIndex = 7;
+            this.btnAnHienDanhMuc.Text = "DS ẩn";
+            this.btnAnHienDanhMuc.UseVisualStyleBackColor = true;
+            this.btnAnHienDanhMuc.Click += new System.EventHandler(this.btnAnHienDanhMuc_Click);
             // 
             // btnSuaDanhMuc
             // 
@@ -304,20 +330,18 @@ namespace QLQuanAnForm
             // 
             // panel18
             // 
-            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel18.Controls.Add(this.dgvDanhMuc);
             this.panel18.Location = new System.Drawing.Point(4, 50);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(309, 264);
+            this.panel18.Size = new System.Drawing.Size(309, 216);
             this.panel18.TabIndex = 4;
             // 
             // dgvDanhMuc
             // 
-            this.dgvDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDanhMuc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -330,9 +354,10 @@ namespace QLQuanAnForm
             this.dgvDanhMuc.Location = new System.Drawing.Point(-3, 4);
             this.dgvDanhMuc.Name = "dgvDanhMuc";
             this.dgvDanhMuc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDanhMuc.Size = new System.Drawing.Size(289, 257);
+            this.dgvDanhMuc.Size = new System.Drawing.Size(289, 212);
             this.dgvDanhMuc.TabIndex = 0;
             this.dgvDanhMuc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellClick);
+            this.dgvDanhMuc.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDanhMuc_CellDoubleClick);
             // 
             // tpMonAn
             // 
@@ -499,6 +524,7 @@ namespace QLQuanAnForm
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnAnHienMonAn);
             this.panel4.Controls.Add(this.btnSuaMonAn);
             this.panel4.Controls.Add(this.btnXoaMonAn);
             this.panel4.Controls.Add(this.btnThemMonAn);
@@ -506,6 +532,16 @@ namespace QLQuanAnForm
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(309, 41);
             this.panel4.TabIndex = 1;
+            // 
+            // btnAnHienMonAn
+            // 
+            this.btnAnHienMonAn.Location = new System.Drawing.Point(219, 0);
+            this.btnAnHienMonAn.Name = "btnAnHienMonAn";
+            this.btnAnHienMonAn.Size = new System.Drawing.Size(67, 38);
+            this.btnAnHienMonAn.TabIndex = 3;
+            this.btnAnHienMonAn.Text = "DS ẩn";
+            this.btnAnHienMonAn.UseVisualStyleBackColor = true;
+            this.btnAnHienMonAn.Click += new System.EventHandler(this.btnAnHienMonAn_Click);
             // 
             // btnSuaMonAn
             // 
@@ -542,14 +578,18 @@ namespace QLQuanAnForm
             // 
             // panel3
             // 
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.Controls.Add(this.dgvMonAn);
             this.panel3.Location = new System.Drawing.Point(3, 50);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(309, 264);
+            this.panel3.Size = new System.Drawing.Size(309, 215);
             this.panel3.TabIndex = 0;
             // 
             // dgvMonAn
             // 
+            this.dgvMonAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -561,9 +601,11 @@ namespace QLQuanAnForm
             this.dgvMonAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMonAn.Location = new System.Drawing.Point(-3, 4);
             this.dgvMonAn.Name = "dgvMonAn";
-            this.dgvMonAn.Size = new System.Drawing.Size(289, 257);
+            this.dgvMonAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMonAn.Size = new System.Drawing.Size(289, 211);
             this.dgvMonAn.TabIndex = 0;
             this.dgvMonAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonAn_CellClick);
+            this.dgvMonAn.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMonAn_CellDoubleClick);
             // 
             // tpBanAn
             // 
@@ -643,6 +685,7 @@ namespace QLQuanAnForm
             // 
             // panel22
             // 
+            this.panel22.Controls.Add(this.btnAnHienBanAn);
             this.panel22.Controls.Add(this.btnSuaBanAn);
             this.panel22.Controls.Add(this.btnXoaBanAn);
             this.panel22.Controls.Add(this.btnThemBanAn);
@@ -650,6 +693,16 @@ namespace QLQuanAnForm
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(309, 41);
             this.panel22.TabIndex = 5;
+            // 
+            // btnAnHienBanAn
+            // 
+            this.btnAnHienBanAn.Location = new System.Drawing.Point(219, 0);
+            this.btnAnHienBanAn.Name = "btnAnHienBanAn";
+            this.btnAnHienBanAn.Size = new System.Drawing.Size(67, 38);
+            this.btnAnHienBanAn.TabIndex = 3;
+            this.btnAnHienBanAn.Text = "DS ẩn";
+            this.btnAnHienBanAn.UseVisualStyleBackColor = true;
+            this.btnAnHienBanAn.Click += new System.EventHandler(this.btnAnHienBanAn_Click);
             // 
             // btnSuaBanAn
             // 
@@ -686,14 +739,18 @@ namespace QLQuanAnForm
             // 
             // panel23
             // 
+            this.panel23.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel23.Controls.Add(this.dgvBanAn);
             this.panel23.Location = new System.Drawing.Point(4, 50);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(309, 264);
+            this.panel23.Size = new System.Drawing.Size(309, 215);
             this.panel23.TabIndex = 4;
             // 
             // dgvBanAn
             // 
+            this.dgvBanAn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -705,9 +762,11 @@ namespace QLQuanAnForm
             this.dgvBanAn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBanAn.Location = new System.Drawing.Point(-3, 4);
             this.dgvBanAn.Name = "dgvBanAn";
-            this.dgvBanAn.Size = new System.Drawing.Size(289, 257);
+            this.dgvBanAn.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvBanAn.Size = new System.Drawing.Size(289, 211);
             this.dgvBanAn.TabIndex = 0;
             this.dgvBanAn.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBanAn_CellClick);
+            this.dgvBanAn.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBanAn_CellDoubleClick);
             // 
             // tpTaiKhoan
             // 
@@ -868,14 +927,18 @@ namespace QLQuanAnForm
             // 
             // panel31
             // 
+            this.panel31.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel31.Controls.Add(this.dgvTaiKhoan);
             this.panel31.Location = new System.Drawing.Point(4, 50);
             this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(309, 264);
+            this.panel31.Size = new System.Drawing.Size(309, 217);
             this.panel31.TabIndex = 4;
             // 
             // dgvTaiKhoan
             // 
+            this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -887,12 +950,14 @@ namespace QLQuanAnForm
             this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTaiKhoan.Location = new System.Drawing.Point(-3, 4);
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
-            this.dgvTaiKhoan.Size = new System.Drawing.Size(289, 257);
+            this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTaiKhoan.Size = new System.Drawing.Size(289, 213);
             this.dgvTaiKhoan.TabIndex = 0;
             this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             // 
             // tpDoanhThu
             // 
+            this.tpDoanhThu.Controls.Add(this.panel11);
             this.tpDoanhThu.Controls.Add(this.panel2);
             this.tpDoanhThu.Controls.Add(this.panel1);
             this.tpDoanhThu.Location = new System.Drawing.Point(4, 22);
@@ -902,6 +967,66 @@ namespace QLQuanAnForm
             this.tpDoanhThu.TabIndex = 4;
             this.tpDoanhThu.Text = "Doanh thu";
             this.tpDoanhThu.UseVisualStyleBackColor = true;
+            // 
+            // panel11
+            // 
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel11.Controls.Add(this.btnXuatExcel);
+            this.panel11.Controls.Add(this.txtTongDoanhThu);
+            this.panel11.Controls.Add(this.label5);
+            this.panel11.Controls.Add(this.dgvDoanhThuTheoBan);
+            this.panel11.Location = new System.Drawing.Point(6, 207);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(513, 100);
+            this.panel11.TabIndex = 2;
+            // 
+            // btnXuatExcel
+            // 
+            this.btnXuatExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnXuatExcel.Location = new System.Drawing.Point(0, -1);
+            this.btnXuatExcel.Name = "btnXuatExcel";
+            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
+            this.btnXuatExcel.TabIndex = 8;
+            this.btnXuatExcel.Text = "Xuất excel";
+            this.btnXuatExcel.UseVisualStyleBackColor = true;
+            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
+            // 
+            // txtTongDoanhThu
+            // 
+            this.txtTongDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTongDoanhThu.Location = new System.Drawing.Point(61, 57);
+            this.txtTongDoanhThu.Name = "txtTongDoanhThu";
+            this.txtTongDoanhThu.ReadOnly = true;
+            this.txtTongDoanhThu.Size = new System.Drawing.Size(142, 20);
+            this.txtTongDoanhThu.TabIndex = 7;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(58, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(145, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Doanh thu sau giảm giá:";
+            // 
+            // dgvDoanhThuTheoBan
+            // 
+            this.dgvDoanhThuTheoBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDoanhThuTheoBan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvDoanhThuTheoBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDoanhThuTheoBan.Location = new System.Drawing.Point(254, -1);
+            this.dgvDoanhThuTheoBan.Name = "dgvDoanhThuTheoBan";
+            this.dgvDoanhThuTheoBan.Size = new System.Drawing.Size(259, 103);
+            this.dgvDoanhThuTheoBan.TabIndex = 5;
             // 
             // panel2
             // 
@@ -915,7 +1040,7 @@ namespace QLQuanAnForm
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Location = new System.Drawing.Point(439, 0);
+            this.btnThongKe.Location = new System.Drawing.Point(428, 3);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(75, 23);
             this.btnThongKe.TabIndex = 2;
@@ -925,9 +1050,9 @@ namespace QLQuanAnForm
             // 
             // dtpDenNgay
             // 
-            this.dtpDenNgay.Location = new System.Drawing.Point(221, 3);
+            this.dtpDenNgay.Location = new System.Drawing.Point(209, 3);
             this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(200, 20);
+            this.dtpDenNgay.Size = new System.Drawing.Size(198, 20);
             this.dtpDenNgay.TabIndex = 1;
             // 
             // dtpTuNgay
@@ -935,67 +1060,26 @@ namespace QLQuanAnForm
             this.dtpTuNgay.Checked = false;
             this.dtpTuNgay.Location = new System.Drawing.Point(4, 3);
             this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(200, 20);
+            this.dtpTuNgay.Size = new System.Drawing.Size(199, 20);
             this.dtpTuNgay.TabIndex = 0;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnXuatExcel);
-            this.panel1.Controls.Add(this.txtTongDoanhThu);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.dgvDoanhThuTheoBan);
-            this.panel1.Controls.Add(this.dgvHoaDon);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.dgvThongKe);
             this.panel1.Location = new System.Drawing.Point(6, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(516, 282);
+            this.panel1.Size = new System.Drawing.Size(516, 169);
             this.panel1.TabIndex = 0;
             // 
-            // btnXuatExcel
+            // dgvThongKe
             // 
-            this.btnXuatExcel.Location = new System.Drawing.Point(0, 176);
-            this.btnXuatExcel.Name = "btnXuatExcel";
-            this.btnXuatExcel.Size = new System.Drawing.Size(75, 23);
-            this.btnXuatExcel.TabIndex = 4;
-            this.btnXuatExcel.Text = "Xuất excel";
-            this.btnXuatExcel.UseVisualStyleBackColor = true;
-            this.btnXuatExcel.Click += new System.EventHandler(this.btnXuatExcel_Click);
-            // 
-            // txtTongDoanhThu
-            // 
-            this.txtTongDoanhThu.Location = new System.Drawing.Point(61, 234);
-            this.txtTongDoanhThu.Name = "txtTongDoanhThu";
-            this.txtTongDoanhThu.ReadOnly = true;
-            this.txtTongDoanhThu.Size = new System.Drawing.Size(142, 20);
-            this.txtTongDoanhThu.TabIndex = 3;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(58, 209);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(145, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Doanh thu sau giảm giá:";
-            // 
-            // dgvDoanhThuTheoBan
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDoanhThuTheoBan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDoanhThuTheoBan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDoanhThuTheoBan.Location = new System.Drawing.Point(254, 176);
-            this.dgvDoanhThuTheoBan.Name = "dgvDoanhThuTheoBan";
-            this.dgvDoanhThuTheoBan.Size = new System.Drawing.Size(259, 103);
-            this.dgvDoanhThuTheoBan.TabIndex = 1;
-            // 
-            // dgvHoaDon
-            // 
+            this.dgvThongKe.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvThongKe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1003,23 +1087,134 @@ namespace QLQuanAnForm
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvThongKe.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvThongKe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThongKe.Location = new System.Drawing.Point(-3, 0);
+            this.dgvThongKe.Name = "dgvThongKe";
+            this.dgvThongKe.Size = new System.Drawing.Size(519, 168);
+            this.dgvThongKe.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panel19);
+            this.tabPage1.Controls.Add(this.panel14);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(525, 317);
+            this.tabPage1.TabIndex = 5;
+            this.tabPage1.Text = "Hóa đơn";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panel19
+            // 
+            this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel19.Controls.Add(this.txtXoaMaHoaDon);
+            this.panel19.Controls.Add(this.btnXoaHoaDon);
+            this.panel19.Controls.Add(this.txtTimMaHoaDon);
+            this.panel19.Controls.Add(this.btnTimHoaDon);
+            this.panel19.Location = new System.Drawing.Point(6, 7);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(513, 43);
+            this.panel19.TabIndex = 1;
+            // 
+            // panel14
+            // 
+            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel14.Controls.Add(this.dgvChiTietHoaDon);
+            this.panel14.Controls.Add(this.dgvHoaDon);
+            this.panel14.Location = new System.Drawing.Point(6, 56);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(513, 255);
+            this.panel14.TabIndex = 0;
+            // 
+            // dgvChiTietHoaDon
+            // 
+            this.dgvChiTietHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvChiTietHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvChiTietHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvChiTietHoaDon.Location = new System.Drawing.Point(262, 3);
+            this.dgvChiTietHoaDon.Name = "dgvChiTietHoaDon";
+            this.dgvChiTietHoaDon.Size = new System.Drawing.Size(251, 249);
+            this.dgvChiTietHoaDon.TabIndex = 1;
+            // 
+            // dgvHoaDon
+            // 
+            this.dgvHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
+            this.dgvHoaDon.Location = new System.Drawing.Point(3, 3);
             this.dgvHoaDon.Name = "dgvHoaDon";
-            this.dgvHoaDon.Size = new System.Drawing.Size(519, 170);
+            this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHoaDon.Size = new System.Drawing.Size(251, 249);
             this.dgvHoaDon.TabIndex = 0;
+            this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
+            // 
+            // txtTimMaHoaDon
+            // 
+            this.txtTimMaHoaDon.Location = new System.Drawing.Point(5, 9);
+            this.txtTimMaHoaDon.Name = "txtTimMaHoaDon";
+            this.txtTimMaHoaDon.Size = new System.Drawing.Size(125, 20);
+            this.txtTimMaHoaDon.TabIndex = 7;
+            // 
+            // btnTimHoaDon
+            // 
+            this.btnTimHoaDon.Location = new System.Drawing.Point(136, -1);
+            this.btnTimHoaDon.Name = "btnTimHoaDon";
+            this.btnTimHoaDon.Size = new System.Drawing.Size(67, 38);
+            this.btnTimHoaDon.TabIndex = 6;
+            this.btnTimHoaDon.Text = "Tìm HD";
+            this.btnTimHoaDon.UseVisualStyleBackColor = true;
+            this.btnTimHoaDon.Click += new System.EventHandler(this.btnTimHoaDon_Click);
+            // 
+            // txtXoaMaHoaDon
+            // 
+            this.txtXoaMaHoaDon.Location = new System.Drawing.Point(263, 10);
+            this.txtXoaMaHoaDon.Name = "txtXoaMaHoaDon";
+            this.txtXoaMaHoaDon.Size = new System.Drawing.Size(125, 20);
+            this.txtXoaMaHoaDon.TabIndex = 9;
+            // 
+            // btnXoaHoaDon
+            // 
+            this.btnXoaHoaDon.Location = new System.Drawing.Point(394, 0);
+            this.btnXoaHoaDon.Name = "btnXoaHoaDon";
+            this.btnXoaHoaDon.Size = new System.Drawing.Size(67, 38);
+            this.btnXoaHoaDon.TabIndex = 8;
+            this.btnXoaHoaDon.Text = "Xóa HD";
+            this.btnXoaHoaDon.UseVisualStyleBackColor = true;
+            this.btnXoaHoaDon.Click += new System.EventHandler(this.btnXoaHoaDon_Click);
             // 
             // fadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(557, 360);
-            this.Controls.Add(this.tcAdmin);
+            this.Controls.Add(this.tpHoaDon);
             this.Name = "fadmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin";
-            this.tcAdmin.ResumeLayout(false);
+            this.tpHoaDon.ResumeLayout(false);
             this.tpDanhMuc.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
@@ -1066,10 +1261,17 @@ namespace QLQuanAnForm
             this.panel31.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
             this.tpDoanhThu.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuTheoBan)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDoanhThuTheoBan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThongKe)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.panel19.ResumeLayout(false);
+            this.panel19.PerformLayout();
+            this.panel14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHoaDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.ResumeLayout(false);
 
@@ -1077,7 +1279,7 @@ namespace QLQuanAnForm
 
         #endregion
 
-        private System.Windows.Forms.TabControl tcAdmin;
+        private System.Windows.Forms.TabControl tpHoaDon;
         private System.Windows.Forms.TabPage tpDanhMuc;
         private System.Windows.Forms.TabPage tpMonAn;
         private System.Windows.Forms.Panel panel6;
@@ -1094,7 +1296,7 @@ namespace QLQuanAnForm
         private System.Windows.Forms.DateTimePicker dtpDenNgay;
         private System.Windows.Forms.DateTimePicker dtpTuNgay;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.DataGridView dgvHoaDon;
+        private System.Windows.Forms.DataGridView dgvThongKe;
         private System.Windows.Forms.Button btnSuaMonAn;
         private System.Windows.Forms.Button btnXoaMonAn;
         private System.Windows.Forms.TextBox txtTimMonAn;
@@ -1154,10 +1356,23 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Panel panel31;
         private System.Windows.Forms.DataGridView dgvTaiKhoan;
         private System.Windows.Forms.Button btnResetMatKhau;
-        private System.Windows.Forms.DataGridView dgvDoanhThuTheoBan;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button btnXuatExcel;
         private System.Windows.Forms.TextBox txtTongDoanhThu;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnXuatExcel;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridView dgvDoanhThuTheoBan;
+        private System.Windows.Forms.Button btnAnHienMonAn;
+        private System.Windows.Forms.Button btnAnHienDanhMuc;
+        private System.Windows.Forms.Button btnAnHienBanAn;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.DataGridView dgvChiTietHoaDon;
+        private System.Windows.Forms.DataGridView dgvHoaDon;
+        private System.Windows.Forms.TextBox txtTimMaHoaDon;
+        private System.Windows.Forms.Button btnTimHoaDon;
+        private System.Windows.Forms.TextBox txtXoaMaHoaDon;
+        private System.Windows.Forms.Button btnXoaHoaDon;
     }
 }
