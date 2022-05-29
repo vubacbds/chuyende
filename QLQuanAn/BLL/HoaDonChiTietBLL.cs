@@ -73,6 +73,9 @@ namespace BLL
         {
             return DB.HoaDonChiTiets.Where(hdct => hdct.idmonan == idmonan).FirstOrDefault();
         }
-
+        public List<HoaDonChiTiet> LayTatCa()
+        {
+            return DB.HoaDonChiTiets.ToList();
+        }
     }
 }

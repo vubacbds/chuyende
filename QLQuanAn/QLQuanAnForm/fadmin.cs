@@ -28,7 +28,7 @@ namespace QLQuanAnForm
             LoadMonAn();
             LoadTaiKhoan();
             LoadBanAn();
-            LoadHoaDon();
+            LoadHoaDon(false);
             AnHienMonAn = false;
             AnHienDanhMuc = false;
             AnHienBanAn = false;
@@ -95,38 +95,107 @@ namespace QLQuanAnForm
             dgvBanAn.Columns[0].Visible = false;
             #endregion
         }
-        void LoadHoaDon()
+        void LoadHoaDon(bool thongke)
         {
-            var kq = from h in HDBLL.LayTatCa()
+            List<HoaDon> listhd = HDBLL.LayTatCa();
+            if (thongke)
+            {
+                listhd = HDBLL.LayHoaDonTheoThoiGian(dtpTuNgay.Value, dtpDenNgay.Value);
+            }
+            var kq = from h in listhd
                      join b in BABLL.LayTatCaHD() on h.idbanan equals b.id
-                     //orderby m.ten ascending
+                     orderby h.ngayvao descending
+                     let doanhthusaugiamgia = h.tongtien - h.tongtien * h.giamgia / 100
                      select new
                      {
                          h.id,
+                         h.tongtien,
                          h.ngayvao,
                          h.ngayra,
                          b.ten,
                          h.giamgia,
-                         h.tongtien,
                          h.nguoitao,
-                         h.trangthai
+                         h.trangthai,
+                         idban = b.id,
+                         doanhthusaugiamgia
                      };
+            var tongdoanhthu = kq.Select(p => p.tongtien).Sum();
+            var tongdoanhthusaugiamgia = kq.Select(p => p.doanhthusaugiamgia).Sum();
             dgvHoaDon.DataSource = kq.ToList();
             #region Định dạng Datagridview
             dgvHoaDon.Columns["id"].HeaderText = "Mã hóa đơn";
             dgvHoaDon.Columns["ngayvao"].HeaderText = "Ngày vào";
             dgvHoaDon.Columns["ngayra"].HeaderText = "Ngày ra";
             dgvHoaDon.Columns["ten"].HeaderText = "Tên bàn";
-            dgvHoaDon.Columns["giamgia"].HeaderText = "Giảm giá";
-            dgvHoaDon.Columns["tongtien"].HeaderText = "Tổng tiền";
+            dgvHoaDon.Columns["giamgia"].HeaderText = "Giảm giá(%)";
+            dgvHoaDon.Columns["tongtien"].HeaderText = "Tổng tiền(vnđ)";
             dgvHoaDon.Columns["nguoitao"].HeaderText = "Người tạo";
             dgvHoaDon.Columns["trangthai"].HeaderText = "Trạng thái";
-            //dgvHoaDon.Columns["trangthai"].Width = 80;
-            //dgvHoaDon.Columns["ten"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvHoaDon.Columns[0].Visible = false;
+            dgvHoaDon.Columns["doanhthusaugiamgia"].HeaderText = "Tổng tiền sau giảm giá";
+            dgvHoaDon.Columns["idban"].HeaderText = "ID bàn ăn";
+            dgvHoaDon.Columns[8].Visible = false;
+            dgvHoaDon.Columns[9].Visible = false;
             dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Format = "N0";
-            dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             #endregion
+
+            if (thongke) //Nếu thống kê bằng true nghĩa là nhấn vào button thống kê mới hiển thị doanh thu
+            {
+                txtDoanhThuSauGiamGia.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongdoanhthusaugiamgia) + " vnđ";
+                txtDoanhThu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongdoanhthu) + " vnđ";
+                var results = from k in kq    //Thống kê Doanh thu theo bàn ăn dùng groupby
+                              group k by k.idban into theoban
+                              orderby theoban.Key ascending
+                              select new
+                              {
+                                  tenban = theoban.Select(g => g.ten).FirstOrDefault(),
+                                  doanhthu = theoban.Sum(x => x.tongtien - x.tongtien * x.giamgia / 100)
+                              };
+                dgvDoanhThuTheoBan.DataSource = results.ToList();
+                #region Định dạng Datagridview
+                dgvDoanhThuTheoBan.Columns["tenban"].HeaderText = "Tên bàn";
+                dgvDoanhThuTheoBan.Columns["doanhthu"].HeaderText = "Doanh thu";
+                dgvDoanhThuTheoBan.Columns["doanhthu"].DefaultCellStyle.Format = "N0";
+                dgvDoanhThuTheoBan.Columns["doanhthu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvDoanhThuTheoBan.Columns["doanhthu"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                #endregion
+
+                var dsmonan = from h in listhd   //Thống kê doanh thu cho món ăn dùng groupby
+                              join c in HDCTBLL.LayTatCa() on h.id equals c.idhoadon
+                              join m in MABLL.LayTatCaHD() on c.idmonan equals m.id
+                              let thanhtien = c.soluong * m.gia - c.soluong * m.gia * h.giamgia / 100
+                              select new
+                              {
+                                  m.id,
+                                  m.ten,
+                                  c.soluong,
+                                  thanhtien
+                              };
+                var groupbydsmonan = from k in dsmonan          
+                                     group k by k.id into theomon
+                              orderby theomon.Select(g => g.ten).FirstOrDefault() ascending
+                              select new
+                              {
+                                  tenmon = theomon.Select(g => g.ten).FirstOrDefault(),
+                                  doanhthu = theomon.Sum(x => x.thanhtien),
+                                  soluong = theomon.Sum(x => x.soluong)
+                              };
+                dgvDoanhThuTheoMonAn.DataSource = groupbydsmonan.ToList();
+                #region Định dạng Datagridview
+                dgvDoanhThuTheoMonAn.Columns["tenmon"].HeaderText = "Tên món ăn";
+                dgvDoanhThuTheoMonAn.Columns["doanhthu"].HeaderText = "Doanh thu";
+                dgvDoanhThuTheoMonAn.Columns["doanhthu"].DefaultCellStyle.Format = "N0";
+                dgvDoanhThuTheoMonAn.Columns["doanhthu"].Width = 60;
+                dgvDoanhThuTheoMonAn.Columns["soluong"].HeaderText = "SL";
+                dgvDoanhThuTheoMonAn.Columns["soluong"].Width = 30;
+                dgvDoanhThuTheoMonAn.Columns["tenmon"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvDoanhThuTheoMonAn.Columns["doanhthu"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                #endregion
+            }
+            else
+            {
+                txtDoanhThuSauGiamGia.Text = null;
+            } 
         }
         void LoadChiTietHoaDon(string mahoadon)
         {
@@ -711,64 +780,40 @@ namespace QLQuanAnForm
         }
         #endregion
 
-        #region Events doanh thu
-        private void btnThongKe_Click(object sender, EventArgs e)
+        #region Events Hóa đơn
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)  //Chọn vào 1 hàng hóa đơn hiển thị chi tiết
         {
-            //MessageBox.Show(DateTime.Now.ToString("hh:mm:ss"));
-            var kq = from h in HDBLL.LayHoaDonTheoThoiGian(dtpTuNgay.Value, dtpDenNgay.Value)
-                     join b in BABLL.LayTatCa() on h.idbanan equals b.id
-                     let doanhthu = h.tongtien - h.tongtien * h.giamgia / 100
-                     select new
-                     {
-                         h.id,
-                         h.tongtien,
-                         h.ngayvao,
-                         h.ngayra,
-                         b.ten,
-                         h.giamgia,
-                         h.nguoitao,
-                         idban = b.id,
-                         doanhthu
-                     };
-            var tongdoanhthu = kq.Select(p => p.doanhthu).Sum();
-            dgvThongKe.DataSource = kq.ToList();
+            int rowi = e.RowIndex;
+            if (rowi < 0 || rowi >= dgvHoaDon.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
+            {
+                return;
+            }
+            else
+            {
+                string id = dgvHoaDon.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtMaHoaDon.Text = id;
+                LoadChiTietHoaDon(id);
+            }
+        }
+        private void btnThongKe_Click_1(object sender, EventArgs e)
+        {
+            LoadHoaDon(true);
+        }
 
-            txtTongDoanhThu.Text = string.Format(new CultureInfo("vi-VN"), "{0:#,##0}", tongdoanhthu) + " vnđ";
-            var results = from k in kq          //Doanh thu theo bàn ăn
-                          group k by k.idban into theoban
-                          orderby theoban.Key ascending
-                          select new
-                          {
-                              tenban = theoban.Select(g => g.ten).FirstOrDefault(),
-                              tongdoanhthu = theoban.Sum(x => x.tongtien - x.tongtien * x.giamgia / 100)
-                          };
-
-            dgvDoanhThuTheoBan.DataSource = results.ToList();
-
-            #region Định dạng Datagridview
-            dgvDoanhThuTheoBan.Columns["tenban"].HeaderText = "Tên bàn";
-            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].HeaderText = "Doanh thu";
-            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].DefaultCellStyle.Format = "N0";
-            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvDoanhThuTheoBan.Columns["tongdoanhthu"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-            dgvThongKe.Columns["id"].HeaderText = "Mã hóa đơn";
-            dgvThongKe.Columns["tongtien"].HeaderText = "Tổng tiền";
-            dgvThongKe.Columns["tongtien"].DefaultCellStyle.Format = "N0";
-            //dgvHoaDon.Columns["tongtien"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvThongKe.Columns["ngayvao"].HeaderText = "Ngày vào";
-            dgvThongKe.Columns["ngayra"].HeaderText = "Ngày ra";
-            dgvThongKe.Columns["ten"].HeaderText = "Tên bàn";
-            dgvThongKe.Columns["giamgia"].HeaderText = "% giảm giá";
-            dgvThongKe.Columns["nguoitao"].HeaderText = "Người tạo";
-            //dgvHoaDon.Columns["ngayvao"].Width = 100;
-            //dgvHoaDon.Columns["ngayra"].Width = 100;
-            //dgvHoaDon.Columns["giamgia"].Width = 50;
-            //dgvHoaDon.Columns["ten"].Width = 50;
-            //dgvHoaDon.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvThongKe.Columns[7].Visible = false;
-            dgvThongKe.Columns[8].Visible = false;
-            #endregion
+        private void btnXuatExcel_Click_1(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.RowCount > 0)
+            {
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    //gọi hàm ToExcel() với tham số là dtgDSHS và filename từ SaveFileDialog
+                    ToExcel(dgvHoaDon, saveFileDialog1.FileName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Chưa có dữ liệu");
+            }
         }
         private void ToExcel(DataGridView dataGridView1, string fileName)
         {
@@ -786,7 +831,7 @@ namespace QLQuanAnForm
                 workbook = excel.Workbooks.Add(Type.Missing);
                 worksheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Sheets["Sheet1"];
                 //đặt tên cho sheet
-                worksheet.Name = "Quản lý học sinh";
+                worksheet.Name = "Quản lý quán ăn";
 
                 // export header trong DataGridView
                 for (int i = 0; i < dataGridView1.ColumnCount; i++)
@@ -798,7 +843,9 @@ namespace QLQuanAnForm
                 {
                     for (int j = 0; j < dataGridView1.ColumnCount; j++)
                     {
-                        worksheet.Cells[i + 2, j + 1] = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        string giatri1o = "";
+                        if (dataGridView1.Rows[i].Cells[j].Value != null) giatri1o = dataGridView1.Rows[i].Cells[j].Value.ToString();
+                        worksheet.Cells[i + 2, j + 1] = giatri1o;
                     }
                 }
                 // sử dụng phương thức SaveAs() để lưu workbook với filename
@@ -818,68 +865,37 @@ namespace QLQuanAnForm
                 worksheet = null;
             }
         }
-        private void btnXuatExcel_Click(object sender, EventArgs e)
-        {
-            if (dgvThongKe.DataSource != null)
-            {
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    //gọi hàm ToExcel() với tham số là dtgDSHS và filename từ SaveFileDialog
-                    ToExcel(dgvThongKe, saveFileDialog1.FileName);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Chưa có dữ liệu");
-            }
-        }
-        #endregion
 
-        #region Events Hóa đơn
-        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)  //Chọn vào 1 hàng hóa đơn hiển thị chi tiết
-        {
-            int rowi = e.RowIndex;
-            if (rowi < 0 || rowi >= dgvHoaDon.Rows.Count)  //Để tránh lỗi khi nháy đúp vào tiêu đề
-            {
-                return;
-            }
-            else
-            {
-                string id = dgvHoaDon.Rows[e.RowIndex].Cells[0].Value.ToString();
-                txtXoaMaHoaDon.Text = id;
-                LoadChiTietHoaDon(id);
-            }
-        }
-        private void btnTimHoaDon_Click(object sender, EventArgs e)  //Tìm hóa đơn
-        {
-            var query = HDBLL.LayTatCa().Where(c => c.id.Contains(txtTimMaHoaDon.Text));
-            dgvHoaDon.DataSource = query.ToList();
-            if (txtTimMaHoaDon.Text == "")
-            {
-                LoadHoaDon();
-            }
-        }
         private void btnXoaHoaDon_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có chắc xóa hóa đơn '" + txtXoaMaHoaDon.Text + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
+            if (MessageBox.Show("Bạn có chắc xóa hóa đơn '" + txtMaHoaDon.Text + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
             {
-                if (string.IsNullOrEmpty(txtXoaMaHoaDon.Text))
+                if (string.IsNullOrEmpty(txtMaHoaDon.Text))
                 {
                     MessageBox.Show("Bạn thiếu mã hóa đơn!");
                     return;
                 }
                 try
                 {
-                    HDCTBLL.XoaTatCa(txtXoaMaHoaDon.Text);
-                    HDBLL.Xoa(txtXoaMaHoaDon.Text);
-                    LoadHoaDon();
+                    HDCTBLL.XoaTatCa(txtMaHoaDon.Text);
+                    HDBLL.Xoa(txtMaHoaDon.Text);
+                    LoadHoaDon(false);
                     dgvChiTietHoaDon.DataSource = null;
-                    txtXoaMaHoaDon.Text = "";
+                    txtMaHoaDon.Text = "";
                 }
                 catch
                 {
                     MessageBox.Show("Mã hóa đơn không tồn tại");
                 }
+            }
+        }
+        private void btnTimHoaDon_Click(object sender, EventArgs e)
+        {
+            var query = HDBLL.LayTatCa().Where(c => c.id.Contains(txtMaHoaDon.Text));
+            dgvHoaDon.DataSource = query.ToList();
+            if (txtMaHoaDon.Text == "")
+            {
+                LoadHoaDon(false);
             }
         }
         #endregion

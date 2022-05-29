@@ -24,7 +24,7 @@
       <Column Name="idbanan" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="trangthai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="giamgia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="tongtien" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="tongtien" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="nguoitao" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
       <Association Name="HoaDon_HoaDonChiTiet" Member="HoaDonChiTiets" ThisKey="id" OtherKey="idhoadon" Type="HoaDonChiTiet" />
       <Association Name="BanAn_HoaDon" Member="BanAn" ThisKey="idbanan" OtherKey="id" Type="BanAn" IsForeignKey="true" />
@@ -40,6 +40,14 @@
       <Association Name="MonAn_HoaDonChiTiet" Member="MonAn" ThisKey="idmonan" OtherKey="id" Type="MonAn" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
+    <Type Name="TaiKhoan">
+      <Column Name="tendangnhap" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tenhienthi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="matkhau" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="loai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.MonAn" Member="MonAns">
     <Type Name="MonAn">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -49,14 +57,6 @@
       <Column Name="trangthai" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
       <Association Name="MonAn_HoaDonChiTiet" Member="HoaDonChiTiets" ThisKey="id" OtherKey="idmonan" Type="HoaDonChiTiet" />
       <Association Name="DanhMuc_MonAn" Member="DanhMuc" ThisKey="iddanhmuc" OtherKey="id" Type="DanhMuc" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
-    <Type Name="TaiKhoan">
-      <Column Name="tendangnhap" Type="System.String" DbType="NVarChar(100) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="tenhienthi" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="matkhau" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="loai" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
