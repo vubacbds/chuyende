@@ -14,6 +14,10 @@ namespace BLL
         {
             return DB.HoaDons.ToList();
         }
+        public HoaDon LayHoaDonTheoID(string idhoadon)
+        {
+            return DB.HoaDons.Where(hd => hd.id == idhoadon).FirstOrDefault();
+        }
         public HoaDon LayHoaDonTheoIDBanAn(int idbanan)
         {
             return DB.HoaDons.Where(hd => hd.idbanan==idbanan && hd.trangthai==0).FirstOrDefault();

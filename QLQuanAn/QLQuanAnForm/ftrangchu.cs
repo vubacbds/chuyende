@@ -267,11 +267,11 @@ namespace QLQuanAnForm
         }
 
         #region Xử lý khi in
-        private void btnIn_MouseDown(object sender, MouseEventArgs e) //Sự kiện nhấn chuột xuống thì hiện menu lựa chọn in
+        private void btnPrint_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                contextMenuStrip1.Show(btnIn, e.X, e.Y);
+                contextMenuStrip1.Show(btnPrint, e.X, e.Y);
             }
         }
 
@@ -338,12 +338,47 @@ namespace QLQuanAnForm
             string tenbanan = BABLL.LayBanAnTheoID(IDBanAn).ten;
             if (MessageBox.Show("Bạn có chắc thanh toán tiền cho '" + tenbanan + "' không?", "Thông Báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.OK)
             {
-                printDocument1.Print();
+                PrintDialog pDlg = new PrintDialog();
+                printDocument1.DocumentName = "In phiếu tính tiền";
+                pDlg.Document = printDocument1;
+                pDlg.AllowSelection = true;
+                pDlg.AllowSomePages = true;
+                //DialogResult userResp = pDlg.ShowDialog();
+                //SaveFileDialog saveFileDialog = new SaveFileDialog();
+                //userResp = saveFileDialog.ShowDialog();
+                //Nullable<bool> result = pDlg.ShowDialog();
+
+                if (pDlg.ShowDialog() == DialogResult.OK)
+                {
+                   printDocument1.Print();
+                   HDBLL.Sua(IDBanAn, int.Parse(numGiamGia.Value.ToString()), tongtien);
+                   BABLL.Sua(IDBanAn, "Trống", null);
+                   LoadBanAn();
+                   HienThiHoaDon(IDBanAn); 
+                }
+                else
+                {
+                    MessageBox.Show("Đã hủy in");
+                }
+                //printDocument1.Print();
             }
         }
         private void induanhabepToolStripMenuItem_Click(object sender, EventArgs e)  //Nhấn vào in Phiếu đưa nhà bếp
         {
-            printDocument2.Print();
+            PrintDialog pDlg = new PrintDialog();
+            printDocument2.DocumentName = "In phiếu nhà bếp";
+            pDlg.Document = printDocument2;
+            pDlg.AllowSelection = true;
+            pDlg.AllowSomePages = true;
+            if (pDlg.ShowDialog() == DialogResult.OK)
+            {
+                printDocument2.Print();
+            }
+            else
+            {
+                MessageBox.Show("Đã hủy in");
+            }
+            //printDocument2.Print();
         }
 
         private void printDocument2_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e) //Đưa dữ liệu vào Phiếu đưa nhà bếp
@@ -419,13 +454,10 @@ namespace QLQuanAnForm
         private void printDocument1_EndPrint_1(object sender, System.Drawing.Printing.PrintEventArgs e) //Khi kết thúc in Phiếu tính tiền
         {
             MessageBox.Show("In phiếu tính tiền thành công");
-            HDBLL.Sua(IDBanAn, int.Parse(numGiamGia.Value.ToString()), tongtien);
-            BABLL.Sua(IDBanAn, "Trống", null);
-            LoadBanAn();
-            HienThiHoaDon(IDBanAn);
         }
         #endregion
 
         #endregion
+
     }
 }

@@ -877,6 +877,11 @@ namespace QLQuanAnForm
                 }
                 try
                 {
+                    if (HDBLL.LayHoaDonTheoID(txtMaHoaDon.Text).trangthai == 0) //Nếu hóa đơn chưa thanh toán thì khi xóa hóa đơn bàn ăn thay đổi trạng thái
+                    {
+                        int idbanan = HDBLL.LayHoaDonTheoID(txtMaHoaDon.Text).idbanan;
+                        BABLL.Sua(idbanan, "Trống", null);
+                    }
                     HDCTBLL.XoaTatCa(txtMaHoaDon.Text);
                     HDBLL.Xoa(txtMaHoaDon.Text);
                     LoadHoaDon(false);

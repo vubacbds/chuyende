@@ -31,6 +31,7 @@ namespace QLQuanAnForm
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ftrangchu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.thôngTinCáNhânToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinCáNhânToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +40,7 @@ namespace QLQuanAnForm
             this.panel2 = new System.Windows.Forms.Panel();
             this.dgvHoaDonChiTiet = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnIn = new System.Windows.Forms.Button();
+            this.btnPrint = new System.Windows.Forms.Button();
             this.lblTongTien = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.numGiamGia = new System.Windows.Forms.NumericUpDown();
@@ -143,7 +144,7 @@ namespace QLQuanAnForm
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.Controls.Add(this.btnIn);
+            this.panel3.Controls.Add(this.btnPrint);
             this.panel3.Controls.Add(this.lblTongTien);
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Controls.Add(this.numGiamGia);
@@ -154,15 +155,18 @@ namespace QLQuanAnForm
             this.panel3.Size = new System.Drawing.Size(393, 51);
             this.panel3.TabIndex = 4;
             // 
-            // btnIn
+            // btnPrint
             // 
-            this.btnIn.Location = new System.Drawing.Point(308, 3);
-            this.btnIn.Name = "btnIn";
-            this.btnIn.Size = new System.Drawing.Size(82, 42);
-            this.btnIn.TabIndex = 11;
-            this.btnIn.Text = "In";
-            this.btnIn.UseVisualStyleBackColor = true;
-            this.btnIn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnIn_MouseDown);
+            this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
+            this.btnPrint.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPrint.Location = new System.Drawing.Point(308, 3);
+            this.btnPrint.Name = "btnPrint";
+            this.btnPrint.Size = new System.Drawing.Size(82, 45);
+            this.btnPrint.TabIndex = 8;
+            this.btnPrint.Text = "Print";
+            this.btnPrint.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnPrint_MouseDown);
             // 
             // lblTongTien
             // 
@@ -317,14 +321,14 @@ namespace QLQuanAnForm
             // induanhabepToolStripMenuItem
             // 
             this.induanhabepToolStripMenuItem.Name = "induanhabepToolStripMenuItem";
-            this.induanhabepToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.induanhabepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.induanhabepToolStripMenuItem.Text = "&In đưa nhà bếp";
             this.induanhabepToolStripMenuItem.Click += new System.EventHandler(this.induanhabepToolStripMenuItem_Click);
             // 
             // inPhiếuTínhTiềnToolStripMenuItem
             // 
             this.inPhiếuTínhTiềnToolStripMenuItem.Name = "inPhiếuTínhTiềnToolStripMenuItem";
-            this.inPhiếuTínhTiềnToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.inPhiếuTínhTiềnToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.inPhiếuTínhTiềnToolStripMenuItem.Text = "&In phiếu tính tiền";
             this.inPhiếuTínhTiềnToolStripMenuItem.Click += new System.EventHandler(this.inPhiếuTínhTiềnToolStripMenuItem_Click);
             // 
@@ -389,11 +393,11 @@ namespace QLQuanAnForm
         private System.Windows.Forms.Label lblThongBao;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lblTongTien;
-        private System.Windows.Forms.Button btnIn;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem induanhabepToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.ToolStripMenuItem inPhiếuTínhTiềnToolStripMenuItem;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.Button btnPrint;
     }
 }
