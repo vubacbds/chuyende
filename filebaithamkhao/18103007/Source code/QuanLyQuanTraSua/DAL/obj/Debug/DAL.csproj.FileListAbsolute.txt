@@ -1,0 +1,13 @@
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\bin\Debug\DAL.dll.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\bin\Debug\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\bin\Debug\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\obj\Debug\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanCaPhe_Bai11\DAL\obj\Debug\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\bin\Debug\DAL.dll.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\bin\Debug\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\bin\Debug\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\obj\Debug\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\obj\Debug\DAL.pdb

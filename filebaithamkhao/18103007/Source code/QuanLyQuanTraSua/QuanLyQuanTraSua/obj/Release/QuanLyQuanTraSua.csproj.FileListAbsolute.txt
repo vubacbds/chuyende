@@ -1,0 +1,59 @@
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\QuanLyQuanCaPhe.exe.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\QuanLyQuanCaPhe.exe
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\QuanLyQuanCaPhe.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\BLL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\BLL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\bin\Release\DAL.dll.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanTraSua.csprojAssemblyReference.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.fDangNhap.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.fQuanLy.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.fQuanTriVien.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.fTaiKhoan.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.Properties.Resources.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanTraSua.csproj.GenerateResource.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanTraSua.csproj.CoreCompileInputs.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanTraSua.csproj.CopyComplete
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.exe
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanCaPhe\obj\Release\QuanLyQuanCaPhe.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\QuanLyQuanTraSua.exe.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\QuanLyQuanTraSua.exe
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\QuanLyQuanTraSua.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\BLL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\BLL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\DAL.dll.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csprojAssemblyReference.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fDangKi.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fDangNhap.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fQuanLy.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fQuanTriVien.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fTaiKhoan.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.Properties.Resources.resources
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.GenerateResource.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.CoreCompileInputs.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.CopyComplete
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.exe
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\QuanLyQuanTraSua.exe.config
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\QuanLyQuanTraSua.exe
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\QuanLyQuanTraSua.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\BLL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\DAL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\BLL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\DAL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\bin\Release\DAL.dll.config
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.AssemblyReference.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fDangKi.resources
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fDangNhap.resources
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fQuanLy.resources
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fQuanTriVien.resources
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanCaPhe.fTaiKhoan.resources
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.Properties.Resources.resources
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.GenerateResource.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.CoreCompileInputs.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.csproj.CopyComplete
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.exe
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\QuanLyQuanTraSua\obj\Release\QuanLyQuanTraSua.pdb

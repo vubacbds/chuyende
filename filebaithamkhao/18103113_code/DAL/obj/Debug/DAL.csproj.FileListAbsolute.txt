@@ -1,0 +1,14 @@
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\bin\Debug\DAL.dll.config
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\bin\Debug\DAL.dll
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\bin\Debug\DAL.pdb
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\obj\Debug\DAL.dll
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop\DAL\obj\Debug\DAL.pdb
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\bin\Debug\DAL.dll.config
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\bin\Debug\DAL.dll
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\bin\Debug\DAL.pdb
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\obj\Debug\DAL.dll
+C:\Users\BAC\Desktop\NET\18103113_VuXuanBac_3lop_2\DAL\obj\Debug\DAL.pdb

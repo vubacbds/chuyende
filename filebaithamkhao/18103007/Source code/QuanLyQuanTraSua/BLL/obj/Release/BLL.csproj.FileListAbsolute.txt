@@ -1,0 +1,20 @@
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\bin\Release\BLL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\bin\Release\BLL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\bin\Release\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\bin\Release\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\bin\Release\DAL.dll.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\obj\Release\BLL.csprojAssemblyReference.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\obj\Release\BLL.csproj.CoreCompileInputs.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\obj\Release\BLL.csproj.CopyComplete
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\obj\Release\BLL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\BLL\obj\Release\BLL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\bin\Release\BLL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\bin\Release\BLL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\bin\Release\DAL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\bin\Release\DAL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\bin\Release\DAL.dll.config
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\obj\Release\BLL.csproj.AssemblyReference.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\obj\Release\BLL.csproj.CoreCompileInputs.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\obj\Release\BLL.csproj.CopyComplete
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\obj\Release\BLL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\BLL\obj\Release\BLL.pdb

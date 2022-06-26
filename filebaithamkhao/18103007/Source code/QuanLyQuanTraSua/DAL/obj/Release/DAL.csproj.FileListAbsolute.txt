@@ -1,0 +1,13 @@
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\bin\Release\DAL.dll.config
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\bin\Release\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\bin\Release\DAL.pdb
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\obj\Release\DAL.dll
+D:\HOC_TAP\Công nghệ .NET\BaoCao_KetThucMon\QuanLyQuanTraSua\DAL\obj\Release\DAL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\bin\Release\DAL.dll.config
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\bin\Release\DAL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\bin\Release\DAL.pdb
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\obj\Release\DAL.csproj.AssemblyReference.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\obj\Release\DAL.csproj.CoreCompileInputs.cache
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\obj\Release\DAL.dll
+D:\18103113_c#_LinqToSQL\18103007\Source code\QuanLyQuanTraSua\DAL\obj\Release\DAL.pdb

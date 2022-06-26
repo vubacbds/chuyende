@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="QLCHFastFood">
+  <DataContextMoniker Name="/QLCHFastFoodDataContext" />
+  <nestedChildShapes>
+    <classShape Id="10000d16-72aa-45e2-b536-9bb0fcd3756f" absoluteBounds="0.75, 3.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/QLCHFastFoodDataContext/ChiTietHoaDon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4bc988d7-65c4-47b6-8f80-ecc958719416" absoluteBounds="0.765, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="aa0a7e4e-196e-4419-b29b-455bfbf2c0a3" absoluteBounds="0.75, 1.25, 2, 1.1939925130208338">
+      <DataClassMoniker Name="/QLCHFastFoodDataContext/DonViTinh" />
+      <nestedChildShapes>
+        <elementListCompartment Id="034f544d-c3bb-4155-9ce2-3c6c43787ab1" absoluteBounds="0.765, 1.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d4f880e4-e373-4b3e-b849-658b82bf0211" absoluteBounds="3.75, 3.75, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/QLCHFastFoodDataContext/HoaDon" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bf25b912-92ae-40b4-afd2-b629c0a81d2d" absoluteBounds="3.765, 4.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65b19402-d8a8-4aa6-a947-8f6f3bd37fbf" absoluteBounds="3.5, 0.875, 2, 1.7708968098958333">
+      <DataClassMoniker Name="/QLCHFastFoodDataContext/MatHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ef897234-2f44-440f-8e70-657063414d4f" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3edb6baa-fd90-406c-9e3a-d520700338fd" absoluteBounds="6.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/QLCHFastFoodDataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3ef05f41-ee61-41f5-a448-ddd71eb4e263" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.84699625651042); (3.5 : 1.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QLCHFastFoodDataContext/DonViTinh/DonViTinh_MatHang" />
+      <nodes>
+        <classShapeMoniker Id="aa0a7e4e-196e-4419-b29b-455bfbf2c0a3" />
+        <classShapeMoniker Id="65b19402-d8a8-4aa6-a947-8f6f3bd37fbf" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
